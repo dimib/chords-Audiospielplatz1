@@ -8,14 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var appState = ApplicationState()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack {
+                Image(systemName: "waveform")
+                Text("Audio Spielplatz Eins")
+            }
+            .padding()
+            
+            VStack {
+                Text(appState.message)
+            }
+            
+            Spacer()
+            VStack {
+                PlayerControlsView(playerState: appState.state) { action in
+                    switch action {
+                    case .play:
+                        appState.startPlaying()
+                    case .record:
+                        appState.startRecording()
+                    case .stop:
+                        appState.stop()
+                    case .forward: break
+                    case .backward: break
+                    }
+                }
+            }
+            .padding(10)
+            .border(.white)
         }
-        .padding()
+        .padding(.bottom, 10)
+        .frame(width: 300, height: 300)
     }
 }
 

@@ -11,6 +11,11 @@
 		366999282A3469160041C518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999272A3469160041C518 /* ContentView.swift */; };
 		3669992A2A3469170041C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366999292A3469170041C518 /* Assets.xcassets */; };
 		3669992D2A3469170041C518 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3669992C2A3469170041C518 /* Preview Assets.xcassets */; };
+		366999362A346A200041C518 /* RecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999352A346A200041C518 /* RecordingManager.swift */; };
+		366999382A3471990041C518 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999372A3471990041C518 /* PlayerControlsView.swift */; };
+		3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993A2A348C0E0041C518 /* ApplicationState.swift */; };
+		3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993C2A34A8F10041C518 /* PlaybackManager.swift */; };
+		366999402A34B0520041C518 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993F2A34B0520041C518 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		366999292A3469170041C518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3669992C2A3469170041C518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3669992E2A3469170041C518 /* AudioSpielplatz1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AudioSpielplatz1.entitlements; sourceTree = "<group>"; };
+		366999352A346A200041C518 /* RecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingManager.swift; sourceTree = "<group>"; };
+		366999372A3471990041C518 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
+		3669993A2A348C0E0041C518 /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
+		3669993C2A34A8F10041C518 /* PlaybackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManager.swift; sourceTree = "<group>"; };
+		3669993F2A34B0520041C518 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +62,11 @@
 		366999242A3469160041C518 /* AudioSpielplatz1 */ = {
 			isa = PBXGroup;
 			children = (
+				366999392A3472AE0041C518 /* Views */,
+				366999342A3469FB0041C518 /* Manager */,
 				366999252A3469160041C518 /* AudioSpielplatz1App.swift */,
 				366999272A3469160041C518 /* ContentView.swift */,
+				3669993A2A348C0E0041C518 /* ApplicationState.swift */,
 				366999292A3469170041C518 /* Assets.xcassets */,
 				3669992E2A3469170041C518 /* AudioSpielplatz1.entitlements */,
 				3669992B2A3469170041C518 /* Preview Content */,
@@ -67,6 +80,32 @@
 				3669992C2A3469170041C518 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		366999342A3469FB0041C518 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3669993E2A34B03E0041C518 /* Audio */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		366999392A3472AE0041C518 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				366999372A3471990041C518 /* PlayerControlsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3669993E2A34B03E0041C518 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				366999352A346A200041C518 /* RecordingManager.swift */,
+				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
+				3669993F2A34B0520041C518 /* Errors.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +178,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366999362A346A200041C518 /* RecordingManager.swift in Sources */,
+				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
+				3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
+				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,
+				366999402A34B0520041C518 /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +324,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Ich müsste mal auf dein Mikrofon zugreifen, ginge das wohl..?";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -307,6 +352,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Ich müsste mal auf dein Mikrofon zugreifen, ginge das wohl..?";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
