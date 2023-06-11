@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01482A35BE44009D7B3B /* ChordClassifier.swift */; };
+		364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */; };
+		364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */; };
+		364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */; };
+		364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01542A35CEDA009D7B3B /* AppConfiguration.swift */; };
 		366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999252A3469160041C518 /* AudioSpielplatz1App.swift */; };
 		366999282A3469160041C518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999272A3469160041C518 /* ContentView.swift */; };
 		3669992A2A3469170041C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366999292A3469170041C518 /* Assets.xcassets */; };
@@ -16,9 +21,16 @@
 		3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993A2A348C0E0041C518 /* ApplicationState.swift */; };
 		3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993C2A34A8F10041C518 /* PlaybackManager.swift */; };
 		366999402A34B0520041C518 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993F2A34B0520041C518 /* Errors.swift */; };
+		366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999412A34BD5D0041C518 /* AudioStreamManager.swift */; };
+		366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999432A34BE540041C518 /* AudioAuthorization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		364F01482A35BE44009D7B3B /* ChordClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifier.swift; sourceTree = "<group>"; };
+		364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassfier.swift; sourceTree = "<group>"; };
+		364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataProcessor.swift; sourceTree = "<group>"; };
+		364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSoundClassifier.swift; sourceTree = "<group>"; };
+		364F01542A35CEDA009D7B3B /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		366999222A3469160041C518 /* AudioSpielplatz1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSpielplatz1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366999252A3469160041C518 /* AudioSpielplatz1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpielplatz1App.swift; sourceTree = "<group>"; };
 		366999272A3469160041C518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,6 +42,8 @@
 		3669993A2A348C0E0041C518 /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
 		3669993C2A34A8F10041C518 /* PlaybackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManager.swift; sourceTree = "<group>"; };
 		3669993F2A34B0520041C518 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		366999412A34BD5D0041C518 /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
+		366999432A34BE540041C518 /* AudioAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAuthorization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		364F01472A35BE24009D7B3B /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				364F01482A35BE44009D7B3B /* ChordClassifier.swift */,
+				364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */,
+				364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
+		364F01502A35CB54009D7B3B /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				3669992E2A3469170041C518 /* AudioSpielplatz1.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		364F01512A35CB93009D7B3B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				366999292A3469170041C518 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		366999192A3469160041C518 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +102,13 @@
 		366999242A3469160041C518 /* AudioSpielplatz1 */ = {
 			isa = PBXGroup;
 			children = (
+				364F01512A35CB93009D7B3B /* Resources */,
+				364F01502A35CB54009D7B3B /* Entitlements */,
 				366999392A3472AE0041C518 /* Views */,
 				366999342A3469FB0041C518 /* Manager */,
 				366999252A3469160041C518 /* AudioSpielplatz1App.swift */,
-				366999272A3469160041C518 /* ContentView.swift */,
 				3669993A2A348C0E0041C518 /* ApplicationState.swift */,
-				366999292A3469170041C518 /* Assets.xcassets */,
-				3669992E2A3469170041C518 /* AudioSpielplatz1.entitlements */,
+				364F01542A35CEDA009D7B3B /* AppConfiguration.swift */,
 				3669992B2A3469170041C518 /* Preview Content */,
 			);
 			path = AudioSpielplatz1;
@@ -85,6 +125,7 @@
 		366999342A3469FB0041C518 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				364F01472A35BE24009D7B3B /* CoreML */,
 				3669993E2A34B03E0041C518 /* Audio */,
 			);
 			path = Manager;
@@ -93,6 +134,7 @@
 		366999392A3472AE0041C518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				366999272A3469160041C518 /* ContentView.swift */,
 				366999372A3471990041C518 /* PlayerControlsView.swift */,
 			);
 			path = Views;
@@ -104,6 +146,9 @@
 				366999352A346A200041C518 /* RecordingManager.swift */,
 				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
 				3669993F2A34B0520041C518 /* Errors.swift */,
+				366999412A34BD5D0041C518 /* AudioStreamManager.swift */,
+				366999432A34BE540041C518 /* AudioAuthorization.swift */,
+				364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -179,11 +224,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				366999362A346A200041C518 /* RecordingManager.swift in Sources */,
+				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
+				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,
 				3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */,
+				366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */,
+				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
+				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
 				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,
+				364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */,
+				364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */,
 				366999402A34B0520041C518 /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AudioSpielplatz1/AudioSpielplatz1.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AudioSpielplatz1/Entitlements/AudioSpielplatz1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -342,7 +394,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = AudioSpielplatz1/AudioSpielplatz1.entitlements;
+				CODE_SIGN_ENTITLEMENTS = AudioSpielplatz1/Entitlements/AudioSpielplatz1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;

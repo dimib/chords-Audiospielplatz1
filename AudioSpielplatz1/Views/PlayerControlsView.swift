@@ -20,6 +20,9 @@ struct PlayerControlsView: View {
             PlayerButton(buttonType: .backward) {
                 actionCallback(.backward)
             }
+            PlayerButton(buttonType: .analyze(playerState == .analyzing)) {
+                actionCallback(.analyze)
+            }
             PlayerButton(buttonType: .record(playerState == .recording)) {
                 actionCallback(.record)
             }
@@ -51,6 +54,7 @@ struct PlayerButton: View {
         case record(Bool)
         case play(Bool)
         case stop(Bool)
+        case analyze(Bool)
         case forward
         case backward
         
@@ -58,6 +62,8 @@ struct PlayerButton: View {
             switch self {
             case .record(let active):
                 return active ? "record.circle.fill" : "record.circle"
+            case .analyze(let active):
+                return active ? "waveform.circle.fill" : "waveform.circle"
             case .play(let active):
                 return active ? "play.fill" : "play"
             case .stop(let active):

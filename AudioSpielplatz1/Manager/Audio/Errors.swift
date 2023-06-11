@@ -11,4 +11,5 @@ enum AudioManagersError: Error {
     case illegalOutputFile
     case illegalInputFile
     case illegalState
+    case finished
 }

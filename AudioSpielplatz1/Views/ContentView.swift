@@ -31,6 +31,8 @@ struct ContentView: View {
                         appState.startPlaying()
                     case .record:
                         appState.startRecording()
+                    case .analyze:
+                        appState.startAnalyze()
                     case .stop:
                         appState.stop()
                     case .forward: break

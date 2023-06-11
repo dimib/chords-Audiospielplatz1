@@ -31,19 +31,8 @@ final class RecordingManager: NSObject, ObservableObject {
     
     @Published var recordingManagerState: RecordingManagerState = .idle
     
-    var isAuthorized: Bool {
-        get async {
-            let status = AVCaptureDevice.authorizationStatus(for: .audio)
-            var isAuthorized = status == .authorized
-            if status == .notDetermined {
-                isAuthorized = await AVCaptureDevice.requestAccess(for: .audio)
-            }
-            return isAuthorized
-        }
-    }
-    
     func setupCaptureSession(output filename: String) async throws {
-        guard await isAuthorized else { return }
+        guard await AudioAuthorization.isAuthorized else { return }
         
         let settings: [String: AnyObject] = [
             AVFormatIDKey : NSNumber(value: Int32(kAudioFormatLinearPCM)),
