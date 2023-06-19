@@ -22,6 +22,11 @@ struct ContentView: View {
             VStack {
                 Text(appState.message)
             }
+            VStack {
+                VolumeView(data: appState.analyzerData)
+                    .frame(width: 200, height: 50)
+                    .border(Color.white)
+            }
             
             Spacer()
             VStack {

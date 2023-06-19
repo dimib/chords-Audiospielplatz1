@@ -12,6 +12,7 @@
 		364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */; };
 		364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */; };
 		364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01542A35CEDA009D7B3B /* AppConfiguration.swift */; };
+		364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01562A35EB0F009D7B3B /* ClassificationResult.swift */; };
 		366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999252A3469160041C518 /* AudioSpielplatz1App.swift */; };
 		366999282A3469160041C518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999272A3469160041C518 /* ContentView.swift */; };
 		3669992A2A3469170041C518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 366999292A3469170041C518 /* Assets.xcassets */; };
@@ -23,6 +24,9 @@
 		366999402A34B0520041C518 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993F2A34B0520041C518 /* Errors.swift */; };
 		366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999412A34BD5D0041C518 /* AudioStreamManager.swift */; };
 		366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999432A34BE540041C518 /* AudioAuthorization.swift */; };
+		3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */; };
+		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
+		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,7 @@
 		364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataProcessor.swift; sourceTree = "<group>"; };
 		364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSoundClassifier.swift; sourceTree = "<group>"; };
 		364F01542A35CEDA009D7B3B /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		364F01562A35EB0F009D7B3B /* ClassificationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResult.swift; sourceTree = "<group>"; };
 		366999222A3469160041C518 /* AudioSpielplatz1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSpielplatz1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366999252A3469160041C518 /* AudioSpielplatz1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpielplatz1App.swift; sourceTree = "<group>"; };
 		366999272A3469160041C518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +49,9 @@
 		3669993F2A34B0520041C518 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		366999412A34BD5D0041C518 /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
 		366999432A34BE540041C518 /* AudioAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAuthorization.swift; sourceTree = "<group>"; };
+		3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
+		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
+		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 				364F01482A35BE44009D7B3B /* ChordClassifier.swift */,
 				364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */,
 				364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */,
+				364F01562A35EB0F009D7B3B /* ClassificationResult.swift */,
 			);
 			path = CoreML;
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 		366999342A3469FB0041C518 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				3684634B2A40E04200B574E5 /* Processing */,
 				364F01472A35BE24009D7B3B /* CoreML */,
 				3669993E2A34B03E0041C518 /* Audio */,
 			);
@@ -136,6 +146,7 @@
 			children = (
 				366999272A3469160041C518 /* ContentView.swift */,
 				366999372A3471990041C518 /* PlayerControlsView.swift */,
+				368463502A40F4F000B574E5 /* VolumeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +162,15 @@
 				364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */,
 			);
 			path = Audio;
+			sourceTree = "<group>";
+		};
+		3684634B2A40E04200B574E5 /* Processing */ = {
+			isa = PBXGroup;
+			children = (
+				3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */,
+				3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */,
+			);
+			path = Processing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,15 +247,19 @@
 				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
 				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,
+				368463512A40F4F000B574E5 /* VolumeView.swift in Sources */,
 				3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */,
 				366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */,
+				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
 				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
 				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,
 				364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */,
+				364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */,
 				364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */,
+				3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */,
 				366999402A34B0520041C518 /* Errors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

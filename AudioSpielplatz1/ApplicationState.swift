@@ -18,9 +18,11 @@ final class ApplicationState: ObservableObject {
     private var playbackManager = PlaybackManager()
     
     private var soundClassifier: SoundClassifier?
+    private var audioAnalyzer: AudioAnalyzer?
 
     @Published var state: PlayerState = .idle
     @Published var message: String = ""
+    @Published var analyzerData: AudioAnalyzerData = .zero
     
     private var cancellables = Set<AnyCancellable>()
     private var audioStreams = Set<AnyCancellable>()
@@ -94,7 +96,7 @@ final class ApplicationState: ObservableObject {
             }
         }
     }
-
+    
     /// Start playback. This will just play the previously recorded file
     func startPlaying() {
         guard state == .idle else { return }
@@ -114,10 +116,23 @@ final class ApplicationState: ObservableObject {
             if await AudioAuthorization.isAuthorized {
                 do {
                     try await audioStreamManager.setupCaptureSession()
+/*
                     let soundClassifier = SystemSoundClassifier()
                     try soundClassifier.setupClassifier(audioFormat: audioStreamManager.audioFormat,
                                                         audioStream: audioStreamManager.audioStream)
                     self.soundClassifier = soundClassifier
+ */
+                    let audioAnalyzer = AudioAnalyzer()
+                    try audioAnalyzer.setupAnalyzer(audioStream: audioStreamManager.audioStream)
+                    audioAnalyzer.publisher
+                        .receive(on: DispatchQueue.main)
+                        .sink { data in
+                            self.analyzerData = data
+                        }
+                        .store(in: &cancellables)
+
+                    self.audioAnalyzer = audioAnalyzer
+
                     try audioStreamManager.start()
                 } catch {
                     state = .idle
@@ -133,7 +148,8 @@ final class ApplicationState: ObservableObject {
         switch state {
         case .idle: break
         case .recording:
-            recordingManager.stopRecording()
+            // recordingManager.stopRecording()
+            audioStreamManager.stop()
             message = "Stopped recording!"
         case .playing:
             playbackManager.stopPlaying()
