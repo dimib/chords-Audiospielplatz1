@@ -27,6 +27,7 @@
 		3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */; };
 		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
 		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
+		368463532A4383E000B574E5 /* AudioStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463522A4383E000B574E5 /* AudioStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
 		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		368463522A4383E000B574E5 /* AudioStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */,
 				3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */,
+				368463522A4383E000B574E5 /* AudioStorage.swift */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				366999362A346A200041C518 /* RecordingManager.swift in Sources */,
+				368463532A4383E000B574E5 /* AudioStorage.swift in Sources */,
 				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
 				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,

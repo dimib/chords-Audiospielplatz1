@@ -27,6 +27,10 @@ final class ApplicationState: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var audioStreams = Set<AnyCancellable>()
     
+    private var outputFile: URL? {
+        URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent("MyRecording.wav")
+    }
+    
     /// Initialize different recording and playback state subscribers
     init() {
         recordingManager.$recordingManagerState
@@ -132,6 +136,9 @@ final class ApplicationState: ObservableObject {
                         .store(in: &cancellables)
 
                     self.audioAnalyzer = audioAnalyzer
+                    
+                    let audioStorage = AudioStorage()
+                    try audioStorage.setupAudioStorage(audioStream: audioStreamManager.audioStream, output: outputFile!)
 
                     try audioStreamManager.start()
                 } catch {

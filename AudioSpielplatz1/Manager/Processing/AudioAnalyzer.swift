@@ -43,7 +43,7 @@ final class AudioAnalyzer {
                     return (min, max)
                 }
             
-                debugPrint("\(time) channels=\(channelCount) length=\(frameLength) min=\(minmax.0 * 100.0) max=\(minmax.1 * 100.0)")
+                debugPrint("\(time) channels=\(channelCount) length=\(frameLength) min=\(minmax.0) max=\(minmax.1)")
                 
                 self._analyzerValues.send(AudioAnalyzerData(min: minmax.0, max: minmax.1, time: time))
             })
