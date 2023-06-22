@@ -13,6 +13,7 @@ import Combine
 @MainActor
 final class ApplicationState: ObservableObject {
 
+    private let audioDeviceManager = AudioDeviceManager()
     private var audioStreamManager = AudioStreamManager()
     private var recordingManager = RecordingManager()
     private var playbackManager = PlaybackManager()
@@ -80,6 +81,13 @@ final class ApplicationState: ObservableObject {
                     self.message = "Stream error: \(message)"
                 }
             }.store(in: &cancellables)
+        
+        do {
+            try audioDeviceManager.updateDevices()
+            audioDeviceManager.devices.forEach { debugPrint($0.description) }
+        } catch {
+            debugPrint("☠️ Audio Device Manager can't read devices")
+        }
     }
     
     /// Start recording. This will just save the received audio data into a file.
