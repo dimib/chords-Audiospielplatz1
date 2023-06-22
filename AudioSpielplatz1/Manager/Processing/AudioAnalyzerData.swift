@@ -11,6 +11,7 @@ struct AudioAnalyzerData {
     let min: Float
     let max: Float
     let time: Int64
+    let samples: [Float]
     
-    static var zero = AudioAnalyzerData(min: 0, max: 0, time: 0)
+    static var zero = AudioAnalyzerData(min: 0, max: 0, time: 0, samples: [])
 }

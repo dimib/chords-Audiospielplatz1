@@ -45,11 +45,12 @@ final class AudioAnalyzer {
             
                 debugPrint("\(time) channels=\(channelCount) length=\(frameLength) min=\(minmax.0) max=\(minmax.1)")
                 
-                self._analyzerValues.send(AudioAnalyzerData(min: minmax.0, max: minmax.1, time: time))
+                self._analyzerValues.send(AudioAnalyzerData(min: minmax.0, max: minmax.1, time: time, samples: samples))
             })
     }
     
     private func cleanup() {
+        self._analyzerValues.send(AudioAnalyzerData(min: 0.0, max: 0.0, time: 0, samples: []))
         cancellable = nil
     }
 }

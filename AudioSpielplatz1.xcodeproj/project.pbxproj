@@ -28,6 +28,7 @@
 		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
 		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
 		368463532A4383E000B574E5 /* AudioStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463522A4383E000B574E5 /* AudioStorage.swift */; };
+		368463552A43971C00B574E5 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463542A43971C00B574E5 /* WaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
 		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		368463522A4383E000B574E5 /* AudioStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorage.swift; sourceTree = "<group>"; };
+		368463542A43971C00B574E5 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				366999272A3469160041C518 /* ContentView.swift */,
 				366999372A3471990041C518 /* PlayerControlsView.swift */,
 				368463502A40F4F000B574E5 /* VolumeView.swift */,
+				368463542A43971C00B574E5 /* WaveView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
 				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,
+				368463552A43971C00B574E5 /* WaveView.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
 				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,

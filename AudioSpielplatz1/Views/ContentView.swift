@@ -25,7 +25,10 @@ struct ContentView: View {
             VStack {
                 VolumeView(data: appState.analyzerData)
                     .frame(width: 200, height: 50)
-                    .border(Color.white)
+            }
+            VStack {
+                WaveView(data: appState.analyzerData)
+                    .frame(width: 400,  height: 200)
             }
             
             Spacer()
