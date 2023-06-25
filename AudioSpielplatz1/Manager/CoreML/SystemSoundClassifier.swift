@@ -34,8 +34,8 @@ final class SystemSoundClassifier: NSObject, SoundClassifier {
             analyzer = newAnalyzer
             
             let request = try SNClassifySoundRequest(classifierIdentifier: .version1)
-            request.windowDuration = CMTimeMakeWithSeconds(AppConfiguration.inferenceWindowSize, preferredTimescale: 48_000)
-            request.overlapFactor = AppConfiguration.overlapFactor
+            request.windowDuration = CMTimeMakeWithSeconds(AppDefaults.inferenceWindowSize, preferredTimescale: 48_000)
+            request.overlapFactor = AppDefaults.overlapFactor
             try newAnalyzer.add(request, withObserver: self)
             
             cancellable = audioStream.sink(

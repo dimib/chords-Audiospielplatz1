@@ -62,7 +62,7 @@ struct WaveView_Previews: PreviewProvider {
     @State var playerState: PlayerState = .idle
     static var previews: some View {
 //        ContentView()
-        WaveView(data: AudioAnalyzerData(min: -3.0, max: 1.0, time: 0, samples: randomSamples)).frame(width: 400, height: 200)
+        WaveView(data: AudioAnalyzerData(min: -3.0, max: 1.0, time: 0, frameLength: 0, channelCount: 0, samples: randomSamples)).frame(width: 400, height: 200)
     }
 }
 

@@ -14,8 +14,8 @@
             filePath = "AudioSpielplatz1/ApplicationState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "stop()"
             landmarkType = "7">
          </BreakpointContent>
@@ -159,22 +159,6 @@
                   offsetFromSymbolStart = "688">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "97AE0ACF-6AA0-46D8-9B65-48AB9706823B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AudioSpielplatz1/ApplicationState.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "init()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

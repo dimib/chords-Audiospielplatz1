@@ -81,13 +81,24 @@ final class ApplicationState: ObservableObject {
                     self.message = "Stream error: \(message)"
                 }
             }.store(in: &cancellables)
-        
+
+/*
+    
         do {
             try audioDeviceManager.updateDevices()
             audioDeviceManager.devices.forEach { debugPrint($0.description) }
+            
+            if let micro = audioDeviceManager.devices.first(where: { $0.name.starts(with: "Mikrofon von") }) {
+                try audioDeviceManager.setDefault(audioDevice: micro)
+                debugPrint("Default = \(micro.description)")
+                try audioDeviceManager.enableInput(bus: 0)
+                debugPrint("Audio should be enabled")
+            }
+            
         } catch {
-            debugPrint("☠️ Audio Device Manager can't read devices")
+            debugPrint("☠️ Audio Device Error \(error.localizedDescription)")
         }
+ */
     }
     
     /// Start recording. This will just save the received audio data into a file.
@@ -96,11 +107,11 @@ final class ApplicationState: ObservableObject {
         guard state == .idle else { return }
         
         Task {
-            if await AudioAuthorization.isAuthorized {
+            if await AudioAuthorization.awaitAuthorization {
 
                 do {
-                    try await recordingManager.setupCaptureSession(output: "MyRecording")
-                    try await recordingManager.startRecording()
+                    try recordingManager.setupCaptureSession(output: "MyRecording")
+                    try recordingManager.startRecording()
                 } catch {
                     state = .idle
                     message = error.localizedDescription
@@ -125,9 +136,9 @@ final class ApplicationState: ObservableObject {
         guard state == .idle else { return }
         
         Task {
-            if await AudioAuthorization.isAuthorized {
+            if await AudioAuthorization.awaitAuthorization {
                 do {
-                    try await audioStreamManager.setupCaptureSession()
+                    try audioStreamManager.setupCaptureSession()
 /*
                     let soundClassifier = SystemSoundClassifier()
                     try soundClassifier.setupClassifier(audioFormat: audioStreamManager.audioFormat,

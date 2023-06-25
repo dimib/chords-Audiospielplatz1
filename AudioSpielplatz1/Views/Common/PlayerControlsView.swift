@@ -9,44 +9,51 @@ import SwiftUI
 
 struct PlayerControlsView: View {
     
+    static let defaultButtonSize = CGSize(width: 40, height: 40)
+    
     typealias PlayerControlsActionCallback = (PlayerAction) -> Void
         
     var playerState: PlayerState
 
     let actionCallback: PlayerControlsActionCallback
     
+    let buttonSize: CGSize
+    
     var body: some View {
         HStack {
-            PlayerButton(buttonType: .backward) {
+            PlayerButton(buttonType: .backward, size: buttonSize) {
                 actionCallback(.backward)
             }
-            PlayerButton(buttonType: .analyze(playerState == .analyzing)) {
+            PlayerButton(buttonType: .analyze(playerState == .analyzing), size: buttonSize) {
                 actionCallback(.analyze)
             }
-            PlayerButton(buttonType: .record(playerState == .recording)) {
+            PlayerButton(buttonType: .record(playerState == .recording), size: buttonSize) {
                 actionCallback(.record)
             }
-            PlayerButton(buttonType: .play(playerState == .playing)) {
+            PlayerButton(buttonType: .play(playerState == .playing), size: buttonSize) {
                 actionCallback(.play)
             }
-            PlayerButton(buttonType: .stop(playerState == .idle)) {
+            PlayerButton(buttonType: .stop(playerState == .idle), size: buttonSize) {
                 actionCallback(.stop)
             }
-            PlayerButton(buttonType: .forward) {
+            PlayerButton(buttonType: .forward, size: buttonSize) {
                 actionCallback(.forward)
             }
         }
     }
     
     init(playerState: PlayerState,
+         buttonSize: CGSize = PlayerControlsView.defaultButtonSize,
          actionCallback: @escaping PlayerControlsActionCallback) {
         self.playerState = playerState
+        self.buttonSize = buttonSize
         self.actionCallback = actionCallback
     }
 }
 
 struct PlayerButton: View {
     
+    let buttonSize: CGSize
     let buttonType: ButtonType
     let action: (() -> Void)
     
@@ -84,12 +91,13 @@ struct PlayerButton: View {
             })
             .buttonStyle(.plain)
             .padding(10)
-            .frame(width: 40, height: 40)
+            .frame(width: buttonSize.width, height: buttonSize.height)
         }
     }
     
-    init(buttonType: ButtonType, action: @escaping () -> Void) {
+    init(buttonType: ButtonType, size: CGSize = PlayerControlsView.defaultButtonSize, action: @escaping () -> Void) {
         self.buttonType = buttonType
+        self.buttonSize = size
         self.action = action
     }
 }

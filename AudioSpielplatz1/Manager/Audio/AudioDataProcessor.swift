@@ -14,6 +14,15 @@ import AVFoundation
 struct AudioData {
     let buffer: AVAudioPCMBuffer
     let when: AVAudioTime
+    
+    var samples: [Float]? {
+        let arraySize = Int(buffer.frameLength)
+        guard let channelData = buffer.floatChannelData else {
+            return nil
+        }
+        let samples: [Float] = Array(UnsafeBufferPointer(start: channelData[0], count: arraySize))
+        return samples
+    }
 }
 
 protocol AudioDataProcessor: AnyObject {

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment (\.openWindow) var openWindow
+    
     @ObservedObject var appState = ApplicationState()
 
     var body: some View {
@@ -50,6 +52,9 @@ struct ContentView: View {
             }
             .padding(10)
             .border(.white)
+            .onAppear {
+                // openWindow(id: AudioSpielplatz1App.recordingSessionWindowId)
+            }
         }
         .padding(.bottom, 10)
         .frame(width: 300, height: 300)

@@ -7,11 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3606D68E2A482952009E3957 /* RecordingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D68D2A482952009E3957 /* RecordingSessionView.swift */; };
+		3606D6912A482DAE009E3957 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6902A482DAE009E3957 /* AppConfiguration.swift */; };
+		3606D6942A4830F8009E3957 /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6932A4830F8009E3957 /* UserDefaultStorage.swift */; };
+		3606D6962A483703009E3957 /* JSONFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6952A483703009E3957 /* JSONFileStorage.swift */; };
+		3606D6982A483903009E3957 /* RecordingSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6972A483903009E3957 /* RecordingSessionViewModel.swift */; };
+		3606D69A2A483EC5009E3957 /* SimpleChordsTemplate.json in Resources */ = {isa = PBXBuildFile; fileRef = 3606D6992A483EC5009E3957 /* SimpleChordsTemplate.json */; };
+		3606D69D2A48403C009E3957 /* RecordingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D69C2A48403C009E3957 /* RecordingSession.swift */; };
+		3606D69F2A4846E0009E3957 /* ResourceStorageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D69E2A4846E0009E3957 /* ResourceStorageLoader.swift */; };
+		3606D6A12A4847ED009E3957 /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6A02A4847ED009E3957 /* Storable.swift */; };
+		3606D6A32A4848D6009E3957 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6A22A4848D6009E3957 /* AppErrors.swift */; };
+		3606D6A52A48539C009E3957 /* RecordingSessionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6A42A48539C009E3957 /* RecordingSessionHelper.swift */; };
+		3606D6A72A48687B009E3957 /* DurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6A62A48687B009E3957 /* DurationView.swift */; };
+		3606D6A92A48739D009E3957 /* SessionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6A82A48739D009E3957 /* SessionRecorder.swift */; };
+		3606D6AC2A48E52F009E3957 /* VolumeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */; };
 		364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01482A35BE44009D7B3B /* ChordClassifier.swift */; };
 		364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */; };
 		364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */; };
 		364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */; };
-		364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01542A35CEDA009D7B3B /* AppConfiguration.swift */; };
+		364F01552A35CEDA009D7B3B /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01542A35CEDA009D7B3B /* AppDefaults.swift */; };
 		364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01562A35EB0F009D7B3B /* ClassificationResult.swift */; };
 		366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999252A3469160041C518 /* AudioSpielplatz1App.swift */; };
 		366999282A3469160041C518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999272A3469160041C518 /* ContentView.swift */; };
@@ -33,11 +47,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3606D68D2A482952009E3957 /* RecordingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionView.swift; sourceTree = "<group>"; };
+		3606D6902A482DAE009E3957 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		3606D6932A4830F8009E3957 /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
+		3606D6952A483703009E3957 /* JSONFileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileStorage.swift; sourceTree = "<group>"; };
+		3606D6972A483903009E3957 /* RecordingSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionViewModel.swift; sourceTree = "<group>"; };
+		3606D6992A483EC5009E3957 /* SimpleChordsTemplate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SimpleChordsTemplate.json; sourceTree = "<group>"; };
+		3606D69C2A48403C009E3957 /* RecordingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSession.swift; sourceTree = "<group>"; };
+		3606D69E2A4846E0009E3957 /* ResourceStorageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStorageLoader.swift; sourceTree = "<group>"; };
+		3606D6A02A4847ED009E3957 /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
+		3606D6A22A4848D6009E3957 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		3606D6A42A48539C009E3957 /* RecordingSessionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionHelper.swift; sourceTree = "<group>"; };
+		3606D6A62A48687B009E3957 /* DurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationView.swift; sourceTree = "<group>"; };
+		3606D6A82A48739D009E3957 /* SessionRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecorder.swift; sourceTree = "<group>"; };
+		3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingsView.swift; sourceTree = "<group>"; };
 		364F01482A35BE44009D7B3B /* ChordClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifier.swift; sourceTree = "<group>"; };
 		364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassfier.swift; sourceTree = "<group>"; };
 		364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataProcessor.swift; sourceTree = "<group>"; };
 		364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSoundClassifier.swift; sourceTree = "<group>"; };
-		364F01542A35CEDA009D7B3B /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		364F01542A35CEDA009D7B3B /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		364F01562A35EB0F009D7B3B /* ClassificationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationResult.swift; sourceTree = "<group>"; };
 		366999222A3469160041C518 /* AudioSpielplatz1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioSpielplatz1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		366999252A3469160041C518 /* AudioSpielplatz1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpielplatz1App.swift; sourceTree = "<group>"; };
@@ -71,6 +99,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3606D68A2A48285C009E3957 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				366999272A3469160041C518 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3606D68B2A482862009E3957 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				366999372A3471990041C518 /* PlayerControlsView.swift */,
+				368463502A40F4F000B574E5 /* VolumeView.swift */,
+				368463542A43971C00B574E5 /* WaveView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3606D68C2A48291D009E3957 /* RecordingSession */ = {
+			isa = PBXGroup;
+			children = (
+				3606D68D2A482952009E3957 /* RecordingSessionView.swift */,
+				3606D6972A483903009E3957 /* RecordingSessionViewModel.swift */,
+				3606D6A62A48687B009E3957 /* DurationView.swift */,
+			);
+			path = RecordingSession;
+			sourceTree = "<group>";
+		};
+		3606D68F2A482D7F009E3957 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3606D69B2A48401A009E3957 /* Storage */,
+				364F01542A35CEDA009D7B3B /* AppDefaults.swift */,
+				3606D6902A482DAE009E3957 /* AppConfiguration.swift */,
+				3606D69C2A48403C009E3957 /* RecordingSession.swift */,
+				3606D6A42A48539C009E3957 /* RecordingSessionHelper.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3606D6922A4830CB009E3957 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3606D6A22A4848D6009E3957 /* AppErrors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3606D69B2A48401A009E3957 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3606D6932A4830F8009E3957 /* UserDefaultStorage.swift */,
+				3606D6952A483703009E3957 /* JSONFileStorage.swift */,
+				3606D69E2A4846E0009E3957 /* ResourceStorageLoader.swift */,
+				3606D6A02A4847ED009E3957 /* Storable.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		3606D6AA2A48E512009E3957 /* VolumeSettings */ = {
+			isa = PBXGroup;
+			children = (
+				3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */,
+			);
+			path = VolumeSettings;
+			sourceTree = "<group>";
+		};
 		364F01472A35BE24009D7B3B /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				366999292A3469170041C518 /* Assets.xcassets */,
+				3606D6992A483EC5009E3957 /* SimpleChordsTemplate.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -117,13 +213,14 @@
 		366999242A3469160041C518 /* AudioSpielplatz1 */ = {
 			isa = PBXGroup;
 			children = (
+				3606D6922A4830CB009E3957 /* Extensions */,
+				3606D68F2A482D7F009E3957 /* Model */,
 				364F01512A35CB93009D7B3B /* Resources */,
 				364F01502A35CB54009D7B3B /* Entitlements */,
 				366999392A3472AE0041C518 /* Views */,
 				366999342A3469FB0041C518 /* Manager */,
 				366999252A3469160041C518 /* AudioSpielplatz1App.swift */,
 				3669993A2A348C0E0041C518 /* ApplicationState.swift */,
-				364F01542A35CEDA009D7B3B /* AppConfiguration.swift */,
 				3669992B2A3469170041C518 /* Preview Content */,
 			);
 			path = AudioSpielplatz1;
@@ -150,10 +247,10 @@
 		366999392A3472AE0041C518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				366999272A3469160041C518 /* ContentView.swift */,
-				366999372A3471990041C518 /* PlayerControlsView.swift */,
-				368463502A40F4F000B574E5 /* VolumeView.swift */,
-				368463542A43971C00B574E5 /* WaveView.swift */,
+				3606D6AA2A48E512009E3957 /* VolumeSettings */,
+				3606D68C2A48291D009E3957 /* RecordingSession */,
+				3606D68B2A482862009E3957 /* Common */,
+				3606D68A2A48285C009E3957 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,13 +258,13 @@
 		3669993E2A34B03E0041C518 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				366999352A346A200041C518 /* RecordingManager.swift */,
-				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
-				3669993F2A34B0520041C518 /* Errors.swift */,
-				366999412A34BD5D0041C518 /* AudioStreamManager.swift */,
 				366999432A34BE540041C518 /* AudioAuthorization.swift */,
 				364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */,
 				368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */,
+				366999412A34BD5D0041C518 /* AudioStreamManager.swift */,
+				3669993F2A34B0520041C518 /* Errors.swift */,
+				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
+				366999352A346A200041C518 /* RecordingManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -178,6 +275,7 @@
 				3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */,
 				3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */,
 				368463522A4383E000B574E5 /* AudioStorage.swift */,
+				3606D6A82A48739D009E3957 /* SessionRecorder.swift */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -241,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3669992D2A3469170041C518 /* Preview Assets.xcassets in Resources */,
+				3606D69A2A483EC5009E3957 /* SimpleChordsTemplate.json in Resources */,
 				3669992A2A3469170041C518 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,24 +352,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				366999362A346A200041C518 /* RecordingManager.swift in Sources */,
+				3606D6962A483703009E3957 /* JSONFileStorage.swift in Sources */,
 				368463532A4383E000B574E5 /* AudioStorage.swift in Sources */,
+				3606D6A52A48539C009E3957 /* RecordingSessionHelper.swift in Sources */,
 				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
 				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,
+				3606D69F2A4846E0009E3957 /* ResourceStorageLoader.swift in Sources */,
+				3606D69D2A48403C009E3957 /* RecordingSession.swift in Sources */,
+				3606D68E2A482952009E3957 /* RecordingSessionView.swift in Sources */,
 				368463512A40F4F000B574E5 /* VolumeView.swift in Sources */,
 				3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */,
 				366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */,
+				3606D6A32A4848D6009E3957 /* AppErrors.swift in Sources */,
+				3606D6A72A48687B009E3957 /* DurationView.swift in Sources */,
 				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
+				3606D6A92A48739D009E3957 /* SessionRecorder.swift in Sources */,
 				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,
+				3606D6942A4830F8009E3957 /* UserDefaultStorage.swift in Sources */,
 				368463552A43971C00B574E5 /* WaveView.swift in Sources */,
+				3606D6AC2A48E52F009E3957 /* VolumeSettingsView.swift in Sources */,
+				3606D6982A483903009E3957 /* RecordingSessionViewModel.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
+				3606D6912A482DAE009E3957 /* AppConfiguration.swift in Sources */,
 				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,
+				3606D6A12A4847ED009E3957 /* Storable.swift in Sources */,
 				364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */,
 				364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */,
 				368463572A44DC5A00B574E5 /* AudioDeviceManager.swift in Sources */,
-				364F01552A35CEDA009D7B3B /* AppConfiguration.swift in Sources */,
+				364F01552A35CEDA009D7B3B /* AppDefaults.swift in Sources */,
 				3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */,
 				366999402A34B0520041C518 /* Errors.swift in Sources */,
 			);

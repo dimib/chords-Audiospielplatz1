@@ -31,8 +31,10 @@ final class RecordingManager: NSObject, ObservableObject {
     
     @Published var recordingManagerState: RecordingManagerState = .idle
     
-    func setupCaptureSession(output filename: String) async throws {
-        guard await AudioAuthorization.isAuthorized else { return }
+    func setupCaptureSession(output filename: String) throws {
+        guard AudioAuthorization.isAuthorized else {
+            throw AudioManagersError.notAuthorized
+        }
         
         let settings: [String: AnyObject] = [
             AVFormatIDKey : NSNumber(value: Int32(kAudioFormatLinearPCM)),
@@ -54,7 +56,7 @@ final class RecordingManager: NSObject, ObservableObject {
         self.outputUrl = outputUrl
     }
     
-    func startRecording() async throws {
+    func startRecording() throws {
         guard let recorder else { throw AudioManagersError.illegalState }
         recorder.record()
         recordingManagerState = .recording(filename: outputUrl?.absoluteString ?? "")

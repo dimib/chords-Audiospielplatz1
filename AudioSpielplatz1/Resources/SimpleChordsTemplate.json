@@ -1,0 +1,14 @@
+{
+    "name": "simple-chords",
+    "desc": "A simple chords recording session template",
+    
+    "list": [
+        { "label": "C", "prefix": "c_maj", "countRequired": 1, "countRecorded": 0 },
+        { "label": "D", "prefix": "d_maj", "countRequired": 1, "countRecorded": 0 },
+        { "label": "E", "prefix": "e_maj", "countRequired": 1, "countRecorded": 0 }
+    ],
+    "params": {
+        "recordingSeconds": 3.0,
+        "sampleSeconds": 1.0
+    }
+}

@@ -38,10 +38,17 @@ final class AudioStreamManager: NSObject, ObservableObject {
     
     var audioFormat: AVAudioFormat { audioEngine.inputNode.outputFormat(forBus: 0) }
     
-    func setupCaptureSession() async throws {
-        guard await AudioAuthorization.isAuthorized else { return }
+    func requestAuthorization() async -> Bool {
+        await AudioAuthorization.awaitAuthorization
+    }
+    
+    func setupCaptureSession() throws {
         
-        let audioFormat = audioEngine.inputNode.outputFormat(forBus: 0)
+        guard AudioAuthorization.isAuthorized else {
+            throw AudioManagersError.notAuthorized
+        }
+
+        let audioFormat = audioEngine.inputNode.inputFormat(forBus: 0)
         audioEngine.inputNode.installTap(onBus: busIndex, bufferSize: bufSize,
                                          format: audioFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             DispatchQueue.main.async {
