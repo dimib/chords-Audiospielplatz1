@@ -18,19 +18,38 @@ struct RecordingSessionView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Button(action: {} , label: {
-                    Image(systemName: "folder")
-                        .imageScale(.large)
-                }).buttonStyle(.plain)
+            Grid(alignment: .leading, verticalSpacing: 0) {
+                GridRow(alignment: .center) {
+                    Button(action: {
+                        chooseSessionDirectory()
+                    }, label: {
+                        Image(systemName: "folder")
+                            .imageScale(.large)
+                    }).buttonStyle(.plain)
 
-                Text("\(viewModel.sessionDirectory)")
-                    .font(.headline)
-                Spacer(minLength: 10)
+                    Text("\(viewModel.sessionDirectory)")
+                        .font(.headline)
+                }
+                .frame(height: 20)
+                .padding(10)
+                
+                GridRow(alignment: .center) {
+                    Button(action: {
+                        chooseSessionTemplate()
+                    } , label: {
+                        Image(systemName: "doc.plaintext")
+                            .imageScale(.large)
+                    }).buttonStyle(.plain)
+
+                    Text("\(viewModel.sessionTemplate)")
+                        .font(.headline)
+                }
+                .frame(height: 20)
+                .padding(10)
             }
-            .padding(10)
-            
-            Spacer(minLength: 24)
+            .border(Color.white)
+            .padding(.top, 20)
+            .padding(.horizontal, 12)
             
             // -- Chords to play
             
@@ -89,23 +108,33 @@ struct RecordingSessionView: View {
                         viewModel.stopRecordingSession()
                     default: break
                     }
-                    
                 }
             }
             .padding(.bottom, 12)
         }
-        .toolbar {
-            ToolbarItem {
-                Menu {
-                    Button(action: {
-                        openWindow(id: AudioSpielplatz1App.volumeSettingsId)
-                    }, label: {
-                        Text("Volume Settings")
-                    })
-                } label: {
-                    Label("Settings", systemImage: "gear")
-                }
-            }
+    }
+
+    @MainActor
+    private func chooseSessionDirectory() {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = true
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = false
+        if panel.runModal() == .OK {
+            guard let url = panel.url else { return }
+            viewModel.setSessionDirectory(url)
+        }
+    }
+    
+    private func chooseSessionTemplate() {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        if panel.runModal() == .OK {
+            guard let url = panel.url else { return }
+            viewModel.setSessionTemplate(url)
         }
     }
     

@@ -10,15 +10,14 @@ import AVFoundation
 import Combine
 
 final class AudioStreamManager: NSObject, ObservableObject {
+
+    var config: AudioStreamManagerConfig?
     
     enum AudioStreamManagerState {
         case idle
         case streaming(sampleTime: Int64)
         case error(message: String)
     }
-    
-    private let busIndex = AVAudioNodeBus(0)
-    private let bufSize = AVAudioFrameCount(4096)
     
     private var audioEngine = AVAudioEngine()
     
@@ -36,20 +35,22 @@ final class AudioStreamManager: NSObject, ObservableObject {
         return audioStream.eraseToAnyPublisher()
     }
     
-    var audioFormat: AVAudioFormat { audioEngine.inputNode.outputFormat(forBus: 0) }
-    
     func requestAuthorization() async -> Bool {
         await AudioAuthorization.awaitAuthorization
     }
     
-    func setupCaptureSession() throws {
+    func setupCaptureSession(config: AudioStreamManagerConfig = .init()) throws {
         
         guard AudioAuthorization.isAuthorized else {
             throw AudioManagersError.notAuthorized
         }
+        
+        guard self.config == nil else { throw AudioManagersError.illegalState }
+        
+        self.config = config
 
-        let audioFormat = audioEngine.inputNode.inputFormat(forBus: 0)
-        audioEngine.inputNode.installTap(onBus: busIndex, bufferSize: bufSize,
+        let audioFormat = audioEngine.inputNode.inputFormat(forBus: config.busIndex)
+        audioEngine.inputNode.installTap(onBus: config.busIndex, bufferSize: config.bufSize,
                                          format: audioFormat) { (buffer: AVAudioPCMBuffer, when: AVAudioTime) in
             DispatchQueue.main.async {
                 // Must change the published value on main thread
@@ -64,8 +65,9 @@ final class AudioStreamManager: NSObject, ObservableObject {
     }
     
     func stop() {
+        guard let config = self.config else { return }
         audioEngine.stop()
-        audioEngine.inputNode.removeTap(onBus: busIndex)
+        audioEngine.inputNode.removeTap(onBus: config.busIndex)
         _audioStream?.send(completion: .finished)
         _audioStream = nil
     }

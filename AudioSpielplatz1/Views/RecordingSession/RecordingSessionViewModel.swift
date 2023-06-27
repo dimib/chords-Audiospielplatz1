@@ -16,8 +16,26 @@ final class RecordingSessionViewModel: ObservableObject {
         AppConfiguration().config.projectDirectory
     }
     
-    var sessionDirectory: String {
-        return sessionDefinition?.sessionDirectory.absoluteString ?? "???"
+    // MARK: - Session settings
+    @Published var sessionDirectory: String = ""
+    @Published var sessionTemplate: String = ""
+    @Published var sessionId: String = ""
+    
+    func setSessionDirectory(_ sessionDirectory: URL) {
+        self.sessionDirectory = sessionDirectory.absoluteString
+        AppConfiguration().config.sessionDirectory = self.sessionDirectory
+        openRecordingSession()
+    }
+    
+    func setSessionTemplate(_ sessionTemplate: URL) {
+        do {
+            let recordingSession = try JSONFileStorage<RecordingSession>(url: sessionTemplate).load()
+            self.sessionTemplate = sessionTemplate.absoluteString
+            AppConfiguration().config.sessionTemplate = self.sessionTemplate
+            openRecordingSession()
+        } catch {
+            self.sessionTemplate = "\(error.localizedDescription)"
+        }
     }
     
     // MARK: - Chords expected to play
@@ -46,15 +64,25 @@ final class RecordingSessionViewModel: ObservableObject {
     init() {
         let config = AppConfiguration().config
         print("Project directory: \(config.projectDirectory)")
-        createNewRecordingSession()
-        Task {
-            await AudioAuthorization.awaitAuthorization
-        }
+        sessionDirectory = config.sessionDirectory ?? "- Choose session directory -"
+        sessionTemplate = config.sessionTemplate ?? "- Choose session template -"
+        sessionId = config.sessionId ?? ""
+        openRecordingSession()
     }
     
     static func newRecordingSession(templateResource: String) -> RecordingSession? {
         do {
             let newSession: RecordingSession = try ResourceStorageLoader(name: templateResource).load()
+            return newSession
+        } catch {
+            print("New Session, error=\(error)")
+            return nil
+        }
+    }
+    
+    static func newRecordingSession(templateFile: URL) -> RecordingSession? {
+        do {
+            let newSession: RecordingSession = try JSONFileStorage(url: templateFile).load()
             return newSession
         } catch {
             print("New Session, error=\(error)")
@@ -159,6 +187,25 @@ final class RecordingSessionViewModel: ObservableObject {
         timeRecorded = 0
         timeExpected = recordingSessionTemplate.params.recordingSeconds
         showChords()
+    }
+    
+    private func openRecordingSession() {
+        let config = AppConfiguration().config
+        guard let sessionDirectory = config.sessionDirectory, let sessionUrl = URL(string: sessionDirectory),
+              let sessionTemplate = config.sessionTemplate, let templateUrl = URL(string: sessionTemplate) else { return }
+        
+        do {
+            let recordingSessionTemplate: RecordingSession = try JSONFileStorage(url: templateUrl).load()
+            let sessionDefinition = RecordingSessionDefinition(sessionId: "000", sessionDirectory: sessionUrl,
+                                                               recordingSession: recordingSessionTemplate)
+            self.sessionDefinition = sessionDefinition
+            timeRecorded = 0
+            timeExpected = recordingSessionTemplate.params.recordingSeconds
+            showChords()
+        } catch {
+            
+        }
+        
     }
     
     private func showChords() {

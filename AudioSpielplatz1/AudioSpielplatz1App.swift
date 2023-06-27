@@ -14,41 +14,54 @@ struct AudioSpielplatz1App: App {
     
     static let recordingSessionWindowId = "recording-session"
     static let volumeSettingsId = "volume-settings"
+    static let analyzerWindowId = "analyzer-window"
+
+    @StateObject var applicationState = ApplicationState()
     
     var body: some Scene {
-        WindowGroup {
-//            ContentView()
-//                .environmentObject(ApplicationState())
+        WindowGroup(id: Self.recordingSessionWindowId) {
             RecordingSessionView()
                 .frame(width: 800, height: 600)
-                .environmentObject(ApplicationState())
+                .environmentObject(applicationState)
         }
         .windowResizability(.contentSize)
-
-        Window("Volume Settings", id: Self.volumeSettingsId, content: {
+                
+        Window("Recording Settings", id: Self.volumeSettingsId){
             VolumeSettingsView()
                 .frame(minWidth: 400, minHeight: 180)
-        })
+                .environmentObject(applicationState)
+        }
         .windowResizability(.contentMinSize)
+        
+        Window("Analyzer", id: Self.analyzerWindowId) {
+            AnalyzerView()
+                .environmentObject(applicationState)
+        }
+        .windowResizability(.contentMinSize)
+        
         
         .commands {
             CommandGroup(replacing: .newItem) {
                 Button("New Recording Session") {
                     openWindow(id: Self.recordingSessionWindowId)
                 }
-            }
-            CommandGroup(before: .systemServices) {
-                Button("Settings") {
-                    // Opens the recording settings
+                Button("Open Recording Session") {
                 }
             }
-            CommandMenu("Recording Session") {
-                Button("New Recording Session") {
-                    openWindow(id: Self.recordingSessionWindowId)
+            CommandGroup(replacing: .pasteboard) {
+            }
+            CommandGroup(after: .systemServices) {
+                Divider()
+                Menu("Settings...") {
+                    Button("Start / End Volume") {
+                        openWindow(id: Self.volumeSettingsId)
+                    }
+                    Button("Project Settings") {
+                        
+                    }
                 }
             }
         }
-        
     }
 }
 
