@@ -23,6 +23,9 @@ struct AudioSpielplatz1App: App {
             RecordingSessionView()
                 .frame(width: 800, height: 600)
                 .environmentObject(applicationState)
+                .onAppear {
+                    NSWindow.allowsAutomaticWindowTabbing = false
+                }
         }
         .windowResizability(.contentSize)
                 
@@ -48,19 +51,12 @@ struct AudioSpielplatz1App: App {
                 Button("Open Recording Session") {
                 }
             }
-            CommandGroup(replacing: .pasteboard) {
-            }
-            CommandGroup(after: .systemServices) {
-                Divider()
-                Menu("Settings...") {
-                    Button("Start / End Volume") {
-                        openWindow(id: Self.volumeSettingsId)
-                    }
-                    Button("Project Settings") {
-                        
-                    }
-                }
-            }
+            CommandGroup(replacing: .pasteboard) {}
+            CommandGroup(replacing: .sidebar) {}
+            CommandGroup(replacing: .toolbar) {}
+            CommandGroup(replacing: .windowArrangement) {}
+            CommandGroup(replacing: .windowList) {}
+            CommandGroup(replacing: .undoRedo) { }
         }
     }
 }
