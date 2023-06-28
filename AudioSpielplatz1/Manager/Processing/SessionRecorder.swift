@@ -20,6 +20,7 @@ final class SessionRecorder {
         case waitingForBegin
         case recording(Double)
         case waitingForEnd
+        case failure(String)
         case end
         
         static func == (lhs: Self, rhs: Self) -> Bool {
@@ -39,6 +40,7 @@ final class SessionRecorder {
             case .waitingForBegin: return "Waiting for begin"
             case .recording: return "Recording"
             case .waitingForEnd: return "Waiting for end"
+            case .failure(let message): return "Failed: \(message)"
             case .end: return "Recording ended."
             }
         }
@@ -103,7 +105,15 @@ final class SessionRecorder {
                         if analyzerData.max >= self.startVolume {
                             self.startAudioTime = audioData.when
                             self.state = .recording(0)
-                            return true
+                            
+                            do {
+                                let audioFile = try self.openAudioFile(buffer: audioData.buffer, output: self.output)
+                                self.audioFile = audioFile
+                                return true
+                            } catch {
+                                self.state = .failure(error.localizedDescription)
+                                return false
+                            }
                         }
                         return false
                     case .recording:
@@ -124,13 +134,29 @@ final class SessionRecorder {
                     case .end:
                         debugPrint("😎 end")
                         return false
+                    case .failure(let message):
+                        debugPrint("☠️ error: \(message)")
+                        return false
                     }
                 }
                 .sink(receiveCompletion: { error in
-                    //
+                    print("🎙️ completed: \(error)")
+                    self.closeAudioFile()
                 }, receiveValue: { audioData in
                     switch self.state {
+                    case .recording:
+                        do {
+                            try self.writePCMBuffer(buffer: audioData.buffer)
+                        } catch {
+                            self.state = .failure(error.localizedDescription)
+                            print("☠️ could not write: \(error.localizedDescription)")
+                        }
+                    case .failure:
+                        self._recorderState.send(completion: .finished)
+                        self._analyzerState.send(completion: .finished)
+                        self.cancellable?.cancel()
                     case .end:
+                        self.closeAudioFile()
                         self._recorderState.send(completion: .finished)
                         self._analyzerState.send(completion: .finished)
                         self.cancellable?.cancel()
@@ -159,5 +185,31 @@ final class SessionRecorder {
         guard let startAudioTime else { return 0 }
         let hostTimeDurationSeconds = AVAudioTime.seconds(forHostTime: audioTime.hostTime) - AVAudioTime.seconds(forHostTime: startAudioTime.hostTime)
         return hostTimeDurationSeconds
+    }
+
+    private func openAudioFile(buffer: AVAudioPCMBuffer, output: URL) throws -> AVAudioFile {
+        let settings: [String: Any] = [
+            AVFormatIDKey: buffer.format.settings[AVFormatIDKey] ?? kAudioFormatLinearPCM,
+            AVNumberOfChannelsKey: buffer.format.settings[AVNumberOfChannelsKey] ?? 1,
+            AVSampleRateKey: buffer.format.settings[AVSampleRateKey] ?? 44100,
+            AVLinearPCMBitDepthKey: buffer.format.settings[AVLinearPCMBitDepthKey] ?? 16
+        ]
+        do {
+            let audioFile = try AVAudioFile(forWriting: output, settings: settings, commonFormat: .pcmFormatFloat32, interleaved: false)
+            self.audioFile = audioFile
+            return audioFile
+        } catch {
+            debugPrint("☠️ error opening file at \(output.absoluteString)")
+            throw error
+        }
+    }
+    
+    private func writePCMBuffer(buffer: AVAudioPCMBuffer) throws {
+        guard let audioFile else { throw AudioManagersError.noAudioFile }
+        try audioFile.write(from: buffer)
+    }
+    
+    private func closeAudioFile() {
+        audioFile = nil
     }
 }

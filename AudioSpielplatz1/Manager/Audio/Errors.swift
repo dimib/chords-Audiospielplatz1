@@ -12,7 +12,10 @@ enum AudioManagersError: Error, Equatable {
     case illegalInputFile
     case illegalState
     case notAuthorized
+    case noAudioFile
     case finished
+    case finishedWithMessage(String)
+    case other(Error)
     case audioDevice(OSStatus)
     
     static func == (lhs: Self, rhs: Self) -> Bool {
@@ -21,9 +24,12 @@ enum AudioManagersError: Error, Equatable {
             (.illegalInputFile, .illegalInputFile),
             (.illegalState, .illegalState),
             (.notAuthorized, .notAuthorized),
+            (.noAudioFile, .noAudioFile),
             (.finished, .finished): return true
         case (.audioDevice(let lstatus), .audioDevice(let rstatus)):
             return lstatus == rstatus
+        case (.other, .other):
+            return true
         default: return false
         }
     }

@@ -15,14 +15,18 @@ struct VolumeView: View {
     var volumeWidth: CGFloat {
         min(200, CGFloat(data.max) * 255)
     }
+    
+    func volumeWidth(max: CGFloat) -> CGFloat {
+        min(max, CGFloat(data.max) * 500)
+    }
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Path { path  in
                     path.move(to: CGPoint(x: 5, y: 5))
-                    path.addLine(to: CGPoint(x: volumeWidth, y: 5))
-                    path.addLine(to: CGPoint(x: volumeWidth, y: geometry.size.height - 5))
+                    path.addLine(to: CGPoint(x: volumeWidth(max: geometry.size.width), y: 5))
+                    path.addLine(to: CGPoint(x: volumeWidth(max: geometry.size.width), y: geometry.size.height - 5))
                     path.addLine(to: CGPoint(x: 5, y: geometry.size.height - 5))
                     path.addLine(to: CGPoint(x: 5, y: 5))
                 }

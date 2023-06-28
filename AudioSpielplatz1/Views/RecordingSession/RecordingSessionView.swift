@@ -92,7 +92,7 @@ struct RecordingSessionView: View {
                 Text(viewModel.recordingState)
                     .foregroundColor(Color.black)
             }
-            .frame(width: 200, height: 42)
+            .frame(width: 600, height: 42)
             .background(Color.white)
             .cornerRadius(12)
             

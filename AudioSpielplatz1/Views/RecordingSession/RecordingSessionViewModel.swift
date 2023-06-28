@@ -94,6 +94,7 @@ final class RecordingSessionViewModel: ObservableObject {
     
     func startRecordingSession() {
         currentChordIndex = 0
+        showChords()
         recordCurrent()
     }
     
@@ -113,10 +114,12 @@ final class RecordingSessionViewModel: ObservableObject {
         
         let sessionItem = sessionList[currentChordIndex]
         do {
+            let startVolume = AppConfiguration().config.startRecordingVolume
+            let endVolume = AppConfiguration().config.endRecordingVolume
             var outputUrl = sessionUrl.appendingPathComponent("\(sessionItem.prefix)", isDirectory: true)
             try RecordingSessionHelper.createDirectory(url: outputUrl)
-            outputUrl.appendPathComponent("\(sessionItem.prefix).wav")
-            let sessionRecorder = SessionRecorder(output: outputUrl, duration: duration, startVolume: 1.5, endVolume: 0.05)
+            outputUrl.appendPathComponent("\(sessionItem.prefix)_\(RecordingSessionHelper.newSessionId).wav")
+            let sessionRecorder = SessionRecorder(output: outputUrl, duration: duration, startVolume: startVolume, endVolume: endVolume)
             try sessionRecorder.setupRecording()
             
             recorderCancellable = sessionRecorder.recorderStatePublisher
@@ -153,12 +156,12 @@ final class RecordingSessionViewModel: ObservableObject {
     }
     
     private func queueRecordNext() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
             guard let sessionList = self.sessionDefinition?.recordingSession.list,
-                  self.currentChordIndex < sessionList.count - 1
-            else {
+                  self.currentChordIndex < sessionList.count - 1 else {
                 self.playerState = .idle
+                self.currentChordIndex = 0
+                self.showChords()
                 return
             }
 
@@ -203,7 +206,7 @@ final class RecordingSessionViewModel: ObservableObject {
             timeExpected = recordingSessionTemplate.params.recordingSeconds
             showChords()
         } catch {
-            
+        
         }
         
     }

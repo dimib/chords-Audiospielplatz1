@@ -23,6 +23,7 @@
 		3606D6AC2A48E52F009E3957 /* VolumeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */; };
 		3606D6AF2A4B6F6E009E3957 /* AnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6AE2A4B6F6E009E3957 /* AnalyzerView.swift */; };
 		3606D6B12A4B75A9009E3957 /* AudioStreamManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */; };
+		3606D6B32A4B9A15009E3957 /* VolumeSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B22A4B9A15009E3957 /* VolumeSettingsViewModel.swift */; };
 		364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01482A35BE44009D7B3B /* ChordClassifier.swift */; };
 		364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */; };
 		364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */; };
@@ -65,6 +66,7 @@
 		3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingsView.swift; sourceTree = "<group>"; };
 		3606D6AE2A4B6F6E009E3957 /* AnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzerView.swift; sourceTree = "<group>"; };
 		3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManagerConfig.swift; sourceTree = "<group>"; };
+		3606D6B22A4B9A15009E3957 /* VolumeSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingsViewModel.swift; sourceTree = "<group>"; };
 		364F01482A35BE44009D7B3B /* ChordClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifier.swift; sourceTree = "<group>"; };
 		364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassfier.swift; sourceTree = "<group>"; };
 		364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataProcessor.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				3606D6AB2A48E52F009E3957 /* VolumeSettingsView.swift */,
+				3606D6B22A4B9A15009E3957 /* VolumeSettingsViewModel.swift */,
 			);
 			path = VolumeSettings;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				3606D6A52A48539C009E3957 /* RecordingSessionHelper.swift in Sources */,
 				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
+				3606D6B32A4B9A15009E3957 /* VolumeSettingsViewModel.swift in Sources */,
 				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,
 				3606D69F2A4846E0009E3957 /* ResourceStorageLoader.swift in Sources */,
 				3606D69D2A48403C009E3957 /* RecordingSession.swift in Sources */,

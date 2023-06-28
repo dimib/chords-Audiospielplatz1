@@ -11,8 +11,7 @@ struct VolumeSettingsView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State var startVolume: Double = 0
-    @State var endVolume: Double = 0
+    @StateObject var viewModel = VolumeSettingsViewModel()
 
     var body: some View {
         VStack {
@@ -20,21 +19,22 @@ struct VolumeSettingsView: View {
                 GridRow(alignment: .lastTextBaseline) {
                     Text("Start at")
                     VStack(alignment: .trailing) {
-                        Text("\(startVolume)")
-                        Slider(value: $startVolume, in: 0.0...8.00)
+                        Text("\(viewModel.startVolume)")
+                        Slider(value: $viewModel.startVolume, in: 0.0...8.00)
                     }
                 }
                 GridRow(alignment: .lastTextBaseline) {
                     Text("End at")
                     VStack(alignment: .trailing) {
-                        Text("\(endVolume)")
-                        Slider(value: $endVolume, in: 0.0...8.00)
+                        Text("\(viewModel.endVolume)")
+                        Slider(value: $viewModel.endVolume, in: 0.0...8.00)
                     }
                 }
             }
             Spacer()
             HStack {
                 Button(action: {
+                    viewModel.save()
                     dismiss()
                 }, label: {
                     Text("Save")
