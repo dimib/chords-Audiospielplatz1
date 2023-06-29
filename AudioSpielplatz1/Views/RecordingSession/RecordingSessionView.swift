@@ -18,39 +18,48 @@ struct RecordingSessionView: View {
     
     var body: some View {
         VStack {
-            Grid(alignment: .leading, verticalSpacing: 0) {
-                GridRow(alignment: .center) {
+            
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
                     Button(action: {
                         chooseSessionDirectory()
                     }, label: {
                         Image(systemName: "folder")
                             .imageScale(.large)
-                    }).buttonStyle(.plain)
+                    })
+                    .buttonStyle(.plain)
+                    .frame(width: 40)
 
                     Text("\(viewModel.sessionDirectory)")
                         .font(.headline)
+                    Spacer()
                 }
-                .frame(height: 20)
-                .padding(10)
+                .padding(.horizontal, 10)
+                .padding(.top, 10)
                 
-                GridRow(alignment: .center) {
+                HStack {
                     Button(action: {
                         chooseSessionTemplate()
                     } , label: {
                         Image(systemName: "doc.plaintext")
                             .imageScale(.large)
-                    }).buttonStyle(.plain)
+                    })
+                    .buttonStyle(.plain)
+                    .frame(width: 40)
 
                     Text("\(viewModel.sessionTemplate)")
                         .font(.headline)
+                    Spacer()
                 }
-                .frame(height: 20)
-                .padding(10)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 10)
             }
-            .border(Color.white)
-            .padding(.top, 20)
-            .padding(.horizontal, 12)
+            .border(Color.gray)
+            .padding(5)
             
+            
+
+        
             // -- Chords to play
             
             HStack {
@@ -116,24 +125,13 @@ struct RecordingSessionView: View {
 
     @MainActor
     private func chooseSessionDirectory() {
-        let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = false
-        panel.canChooseDirectories = true
-        panel.canCreateDirectories = true
-        panel.canChooseFiles = false
-        if panel.runModal() == .OK {
-            guard let url = panel.url else { return }
+        RecordingSessionHelper.chooseDirectory { url in
             viewModel.setSessionDirectory(url)
         }
     }
     
     private func chooseSessionTemplate() {
-        let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = false
-        panel.canChooseDirectories = false
-        panel.canChooseFiles = true
-        if panel.runModal() == .OK {
-            guard let url = panel.url else { return }
+        RecordingSessionHelper.chooseFile { url in
             viewModel.setSessionTemplate(url)
         }
     }

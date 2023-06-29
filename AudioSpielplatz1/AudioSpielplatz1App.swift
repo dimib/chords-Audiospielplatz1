@@ -15,6 +15,7 @@ struct AudioSpielplatz1App: App {
     static let recordingSessionWindowId = "recording-session"
     static let volumeSettingsId = "volume-settings"
     static let analyzerWindowId = "analyzer-window"
+    static let audioFileSplitterWindowId = "audiofile-splitter"
 
     @StateObject var applicationState = ApplicationState()
     
@@ -42,6 +43,11 @@ struct AudioSpielplatz1App: App {
         }
         .windowResizability(.contentMinSize)
         
+        Window("Audiofile splitter", id: Self.audioFileSplitterWindowId) {
+            AudioFileSplitterView()
+                .environmentObject(applicationState)
+        }
+        .windowResizability(.contentMinSize)
         
         .commands {
             CommandGroup(replacing: .newItem) {

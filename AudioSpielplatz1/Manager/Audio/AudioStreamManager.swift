@@ -45,8 +45,6 @@ final class AudioStreamManager: NSObject, ObservableObject {
             throw AudioManagersError.notAuthorized
         }
         
-        guard self.config == nil else { throw AudioManagersError.illegalState }
-        
         self.config = config
 
         let audioFormat = audioEngine.inputNode.inputFormat(forBus: config.busIndex)

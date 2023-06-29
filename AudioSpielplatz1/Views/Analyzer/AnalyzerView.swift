@@ -17,19 +17,23 @@ struct AnalyzerView: View {
     var body: some View {
         VStack {
             WaveView(data: viewModel.audioData)
-                .frame(height: 120)
+                .frame(minHeight: 120)
             VolumeView(data: viewModel.audioData)
                 .frame(height: 40)
         }
         .padding(.horizontal, 24)
         .padding(.vertical, 12)
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.willCloseNotification)) { newValue in
-            debugPrint("🪟 close \(newValue)")
-            viewModel.stopAnalyze()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeMainNotification)) { newValue in
-            debugPrint("🪟 didbecomemain \(newValue)")
-            viewModel.startAnalyze()
+        .onChange(of: controlActiveState) { newValue in
+            switch newValue {
+            case .key, .active:
+                debugPrint(newValue)
+                viewModel.startAnalyze()
+            case .inactive:
+                debugPrint(newValue)
+                viewModel.stopAnalyze()
+            @unknown default:
+                break
+            }
         }
     }
 }

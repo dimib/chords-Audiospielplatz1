@@ -24,6 +24,8 @@
 		3606D6AF2A4B6F6E009E3957 /* AnalyzerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6AE2A4B6F6E009E3957 /* AnalyzerView.swift */; };
 		3606D6B12A4B75A9009E3957 /* AudioStreamManagerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */; };
 		3606D6B32A4B9A15009E3957 /* VolumeSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B22A4B9A15009E3957 /* VolumeSettingsViewModel.swift */; };
+		3606D6B62A4CBBE9009E3957 /* AudioFileSplitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B52A4CBBE9009E3957 /* AudioFileSplitterView.swift */; };
+		3606D6B82A4CBF1F009E3957 /* AudioSplitterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6B72A4CBF1F009E3957 /* AudioSplitterViewModel.swift */; };
 		364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F01482A35BE44009D7B3B /* ChordClassifier.swift */; };
 		364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */; };
 		364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */; };
@@ -47,6 +49,8 @@
 		368463532A4383E000B574E5 /* AudioStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463522A4383E000B574E5 /* AudioStorage.swift */; };
 		368463552A43971C00B574E5 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463542A43971C00B574E5 /* WaveView.swift */; };
 		368463572A44DC5A00B574E5 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */; };
+		36AF50CA2A4D3B9E00FB56E0 /* AudioFileSpillter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */; };
+		36AF50CC2A4D4CA600FB56E0 /* AudioFileStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +71,8 @@
 		3606D6AE2A4B6F6E009E3957 /* AnalyzerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzerView.swift; sourceTree = "<group>"; };
 		3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManagerConfig.swift; sourceTree = "<group>"; };
 		3606D6B22A4B9A15009E3957 /* VolumeSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSettingsViewModel.swift; sourceTree = "<group>"; };
+		3606D6B52A4CBBE9009E3957 /* AudioFileSplitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSplitterView.swift; sourceTree = "<group>"; };
+		3606D6B72A4CBF1F009E3957 /* AudioSplitterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSplitterViewModel.swift; sourceTree = "<group>"; };
 		364F01482A35BE44009D7B3B /* ChordClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordClassifier.swift; sourceTree = "<group>"; };
 		364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundClassfier.swift; sourceTree = "<group>"; };
 		364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDataProcessor.swift; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 		368463522A4383E000B574E5 /* AudioStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorage.swift; sourceTree = "<group>"; };
 		368463542A43971C00B574E5 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
+		36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSpillter.swift; sourceTree = "<group>"; };
+		36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileStreamManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,15 @@
 			path = Analyzer;
 			sourceTree = "<group>";
 		};
+		3606D6B42A4CBBD3009E3957 /* AudioFileSplitter */ = {
+			isa = PBXGroup;
+			children = (
+				3606D6B52A4CBBE9009E3957 /* AudioFileSplitterView.swift */,
+				3606D6B72A4CBF1F009E3957 /* AudioSplitterViewModel.swift */,
+			);
+			path = AudioFileSplitter;
+			sourceTree = "<group>";
+		};
 		364F01472A35BE24009D7B3B /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +279,7 @@
 		366999392A3472AE0041C518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3606D6B42A4CBBD3009E3957 /* AudioFileSplitter */,
 				3606D6AD2A4B6F5A009E3957 /* Analyzer */,
 				3606D6AA2A48E512009E3957 /* VolumeSettings */,
 				3606D68C2A48291D009E3957 /* RecordingSession */,
@@ -282,6 +300,7 @@
 				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
 				366999352A346A200041C518 /* RecordingManager.swift */,
 				3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */,
+				36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -293,6 +312,7 @@
 				3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */,
 				368463522A4383E000B574E5 /* AudioStorage.swift */,
 				3606D6A82A48739D009E3957 /* SessionRecorder.swift */,
+				36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -374,10 +394,12 @@
 				3606D6A52A48539C009E3957 /* RecordingSessionHelper.swift in Sources */,
 				364F01532A35CCF7009D7B3B /* SystemSoundClassifier.swift in Sources */,
 				3669993B2A348C0E0041C518 /* ApplicationState.swift in Sources */,
+				3606D6B62A4CBBE9009E3957 /* AudioFileSplitterView.swift in Sources */,
 				3606D6B32A4B9A15009E3957 /* VolumeSettingsViewModel.swift in Sources */,
 				366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */,
 				3606D69F2A4846E0009E3957 /* ResourceStorageLoader.swift in Sources */,
 				3606D69D2A48403C009E3957 /* RecordingSession.swift in Sources */,
+				3606D6B82A4CBF1F009E3957 /* AudioSplitterViewModel.swift in Sources */,
 				3606D68E2A482952009E3957 /* RecordingSessionView.swift in Sources */,
 				368463512A40F4F000B574E5 /* VolumeView.swift in Sources */,
 				3669993D2A34A8F10041C518 /* PlaybackManager.swift in Sources */,
@@ -385,6 +407,8 @@
 				3606D6A32A4848D6009E3957 /* AppErrors.swift in Sources */,
 				3606D6A72A48687B009E3957 /* DurationView.swift in Sources */,
 				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
+				36AF50CC2A4D4CA600FB56E0 /* AudioFileStreamManager.swift in Sources */,
+				36AF50CA2A4D3B9E00FB56E0 /* AudioFileSpillter.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
 				3606D6A92A48739D009E3957 /* SessionRecorder.swift in Sources */,
 				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,

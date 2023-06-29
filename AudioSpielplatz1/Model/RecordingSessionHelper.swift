@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// This helper contains functions to create recording session ids, setup directories etc.
 
@@ -27,5 +28,27 @@ final class RecordingSessionHelper {
     
     static func createDirectory(url: URL) throws {
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
+    }
+    
+    static func chooseDirectory(completion: (URL) -> Void) {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = true
+        panel.canCreateDirectories = true
+        panel.canChooseFiles = false
+        if panel.runModal() == .OK {
+            guard let url = panel.url else { return }
+            completion(url)
+        }
+    }
+    static func chooseFile(completion: (URL) -> Void) {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        if panel.runModal() == .OK {
+            guard let url = panel.url else { return }
+            completion(url)
+        }
     }
 }
