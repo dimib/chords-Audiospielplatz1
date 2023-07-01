@@ -14,24 +14,24 @@ final class AudioStorage {
     private var cancellable: AnyCancellable?
     private var audioFile: AVAudioFile?
 
-    func setupAudioStorage(audioStream: AnyPublisher<AudioData, AudioManagersError>, output: URL) throws {
+    func setupAudioStorage(audioStream: AnyPublisher<AudioData, AudioManagerError>, output: URL) throws {
         
         cancellable = audioStream
             .sink(receiveCompletion: { error in
                 self.audioFile = nil
             }, receiveValue: { audioData in
-                self.writePCMBuffer(buffer: audioData.buffer, output: output)
+                try? self.writePCMBuffer(buffer: audioData.buffer, output: output)
             })
     }
     
-    private func writePCMBuffer(buffer: AVAudioPCMBuffer, output: URL) {
+    func writePCMBuffer(buffer: AVAudioPCMBuffer, output: URL) throws {
         do {
             if audioFile == nil {
                 audioFile = try openAudioFile(buffer: buffer, output: output)
             }
             try audioFile?.write(from: buffer)
         } catch {
-            // Could not write PCM buffer
+            print("Could not write file, error=\(error.localizedDescription)")
         }
     }
     

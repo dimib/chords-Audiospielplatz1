@@ -33,7 +33,7 @@ final class RecordingManager: NSObject, ObservableObject {
     
     func setupCaptureSession(output filename: String) throws {
         guard AudioAuthorization.isAuthorized else {
-            throw AudioManagersError.notAuthorized
+            throw AudioManagerError.notAuthorized
         }
         
         let settings: [String: AnyObject] = [
@@ -46,7 +46,7 @@ final class RecordingManager: NSObject, ObservableObject {
         ]
         
         guard let outputUrl = NSURL(fileURLWithPath: Self.directory).appendingPathComponent("\(filename).wav") else {
-            throw AudioManagersError.illegalOutputFile
+            throw AudioManagerError.illegalOutputFile
         }
         
         let recorder = try AVAudioRecorder(url: outputUrl, settings: settings)
@@ -57,7 +57,7 @@ final class RecordingManager: NSObject, ObservableObject {
     }
     
     func startRecording() throws {
-        guard let recorder else { throw AudioManagersError.illegalState }
+        guard let recorder else { throw AudioManagerError.illegalState }
         recorder.record()
         recordingManagerState = .recording(filename: outputUrl?.absoluteString ?? "")
     }

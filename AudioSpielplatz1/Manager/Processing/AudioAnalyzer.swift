@@ -23,7 +23,7 @@ final class AudioAnalyzer {
         _analyzerValues.eraseToAnyPublisher()
     }
     
-    func setupAnalyzer(audioStream: AnyPublisher<AudioData, AudioManagersError>) throws {
+    func setupAnalyzer(audioStream: AnyPublisher<AudioData, AudioManagerError>) throws {
     
         cancellable = audioStream.sink(
             receiveCompletion: { error in

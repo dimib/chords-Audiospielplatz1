@@ -11,27 +11,34 @@ import AudioToolbox
 final class AudioSplitterViewModel: ObservableObject {
     
     @Published var sessionDirectory: String = ""
-    @Published var audioFilePath: String = ""
+    @Published var audioFilePath: String = "" {
+        didSet {
+            AppConfiguration().config.splitterCurrentFile = audioFilePath
+        }
+    }
     @Published var audioAnalyzerData: AudioAnalyzerData = .zero
     
     init() {
         sessionDirectory = AppConfiguration().config.sessionDirectory ?? ""
+        audioFilePath = AppConfiguration().config.splitterCurrentFile ?? ""
     }
     
-    func setSessionDirectory(_ sessionDirectory: URL) {
-        self.sessionDirectory = sessionDirectory.absoluteString
+    func setSessionDirectory(_ sessionDirectory: String) {
+        self.sessionDirectory = sessionDirectory
     }
     
-    func setAudioFilePath(url: URL) {
-        audioFilePath = url.absoluteString
+    func setAudioFilePath(_ path: String) {
+        audioFilePath = path
     }
+    
+    var splitter: AudioFileSplitter?
     
     func splitAudioFile() {
         do {
-            guard let url = URL(string: audioFilePath) else { return }
-            let splitter = try AudioFileSplitter(input: url, outputPath: url, seconds: 1)
-            splitter.splitAudioFile()
-            debugPrint("Done.")
+            let audioFileURL = URL(fileURLWithPath: audioFilePath)
+            let outputPathURL = URL(fileURLWithPath: sessionDirectory)
+            splitter = try AudioFileSplitter(audioFile: audioFileURL, outputPath: outputPathURL, seconds: 1)
+            try splitter?.splitAudioFile()
         } catch {
             debugPrint("Error: \(error.localizedDescription)")
         }

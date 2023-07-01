@@ -48,13 +48,13 @@ final class SessionRecorder {
     
     // MARK: - Combine
 
-    private var _recorderState = PassthroughSubject<RecorderState, AudioManagersError>()
-    var recorderStatePublisher: AnyPublisher<RecorderState, AudioManagersError> {
+    private var _recorderState = PassthroughSubject<RecorderState, AudioManagerError>()
+    var recorderStatePublisher: AnyPublisher<RecorderState, AudioManagerError> {
         _recorderState.eraseToAnyPublisher()
     }
     
-    private var _analyzerState = PassthroughSubject<AudioAnalyzerData, AudioManagersError>()
-    var recorderAnylizerPublisher: AnyPublisher<AudioAnalyzerData, AudioManagersError> {
+    private var _analyzerState = PassthroughSubject<AudioAnalyzerData, AudioManagerError>()
+    var recorderAnylizerPublisher: AnyPublisher<AudioAnalyzerData, AudioManagerError> {
         _analyzerState.eraseToAnyPublisher()
     }
     
@@ -205,7 +205,7 @@ final class SessionRecorder {
     }
     
     private func writePCMBuffer(buffer: AVAudioPCMBuffer) throws {
-        guard let audioFile else { throw AudioManagersError.noAudioFile }
+        guard let audioFile else { throw AudioManagerError.noAudioFile }
         try audioFile.write(from: buffer)
     }
     

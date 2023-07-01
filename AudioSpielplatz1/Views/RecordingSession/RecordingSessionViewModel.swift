@@ -21,16 +21,16 @@ final class RecordingSessionViewModel: ObservableObject {
     @Published var sessionTemplate: String = ""
     @Published var sessionId: String = ""
     
-    func setSessionDirectory(_ sessionDirectory: URL) {
-        self.sessionDirectory = sessionDirectory.absoluteString
+    func setSessionDirectory(_ sessionDirectory: String) {
+        self.sessionDirectory = sessionDirectory
         AppConfiguration().config.sessionDirectory = self.sessionDirectory
         openRecordingSession()
     }
     
-    func setSessionTemplate(_ sessionTemplate: URL) {
+    func setSessionTemplate(_ sessionTemplate: String) {
         do {
-            let recordingSession = try JSONFileStorage<RecordingSession>(url: sessionTemplate).load()
-            self.sessionTemplate = sessionTemplate.absoluteString
+            let recordingSession = try JSONFileStorage<RecordingSession>(url: URL(fileURLWithPath: sessionTemplate)).load()
+            self.sessionTemplate = sessionTemplate
             AppConfiguration().config.sessionTemplate = self.sessionTemplate
             openRecordingSession()
         } catch {
@@ -194,8 +194,11 @@ final class RecordingSessionViewModel: ObservableObject {
     
     private func openRecordingSession() {
         let config = AppConfiguration().config
-        guard let sessionDirectory = config.sessionDirectory, let sessionUrl = URL(string: sessionDirectory),
-              let sessionTemplate = config.sessionTemplate, let templateUrl = URL(string: sessionTemplate) else { return }
+        guard let sessionDirectory = config.sessionDirectory,
+              let sessionTemplate = config.sessionTemplate else { return }
+        
+        let sessionUrl = URL(fileURLWithPath: sessionDirectory)
+        let templateUrl = URL(fileURLWithPath: sessionTemplate)
         
         do {
             let recordingSessionTemplate: RecordingSession = try JSONFileStorage(url: templateUrl).load()

@@ -49,7 +49,7 @@
 		368463532A4383E000B574E5 /* AudioStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463522A4383E000B574E5 /* AudioStorage.swift */; };
 		368463552A43971C00B574E5 /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463542A43971C00B574E5 /* WaveView.swift */; };
 		368463572A44DC5A00B574E5 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */; };
-		36AF50CA2A4D3B9E00FB56E0 /* AudioFileSpillter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */; };
+		36AF50CA2A4D3B9E00FB56E0 /* AudioFileSplitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF50C92A4D3B9E00FB56E0 /* AudioFileSplitter.swift */; };
 		36AF50CC2A4D4CA600FB56E0 /* AudioFileStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +98,7 @@
 		368463522A4383E000B574E5 /* AudioStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStorage.swift; sourceTree = "<group>"; };
 		368463542A43971C00B574E5 /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
-		36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSpillter.swift; sourceTree = "<group>"; };
+		36AF50C92A4D3B9E00FB56E0 /* AudioFileSplitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileSplitter.swift; sourceTree = "<group>"; };
 		36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFileStreamManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -295,12 +295,12 @@
 				366999432A34BE540041C518 /* AudioAuthorization.swift */,
 				364F014C2A35C1D1009D7B3B /* AudioDataProcessor.swift */,
 				368463562A44DC5A00B574E5 /* AudioDeviceManager.swift */,
+				36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */,
 				366999412A34BD5D0041C518 /* AudioStreamManager.swift */,
+				3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */,
 				3669993F2A34B0520041C518 /* Errors.swift */,
 				3669993C2A34A8F10041C518 /* PlaybackManager.swift */,
 				366999352A346A200041C518 /* RecordingManager.swift */,
-				3606D6B02A4B75A9009E3957 /* AudioStreamManagerConfig.swift */,
-				36AF50CB2A4D4CA600FB56E0 /* AudioFileStreamManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -312,7 +312,7 @@
 				3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */,
 				368463522A4383E000B574E5 /* AudioStorage.swift */,
 				3606D6A82A48739D009E3957 /* SessionRecorder.swift */,
-				36AF50C92A4D3B9E00FB56E0 /* AudioFileSpillter.swift */,
+				36AF50C92A4D3B9E00FB56E0 /* AudioFileSplitter.swift */,
 			);
 			path = Processing;
 			sourceTree = "<group>";
@@ -408,7 +408,7 @@
 				3606D6A72A48687B009E3957 /* DurationView.swift in Sources */,
 				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
 				36AF50CC2A4D4CA600FB56E0 /* AudioFileStreamManager.swift in Sources */,
-				36AF50CA2A4D3B9E00FB56E0 /* AudioFileSpillter.swift in Sources */,
+				36AF50CA2A4D3B9E00FB56E0 /* AudioFileSplitter.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
 				3606D6A92A48739D009E3957 /* SessionRecorder.swift in Sources */,
 				364F01492A35BE44009D7B3B /* ChordClassifier.swift in Sources */,

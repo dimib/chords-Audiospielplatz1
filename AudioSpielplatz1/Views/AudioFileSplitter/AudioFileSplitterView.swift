@@ -69,14 +69,14 @@ struct AudioFileSplitterView: View {
     }
         
     private func chooseSessionDirectory() {
-        RecordingSessionHelper.chooseDirectory { url in
-            viewModel.setSessionDirectory(url)
+        RecordingSessionHelper.chooseDirectory { path in
+            viewModel.setSessionDirectory(path)
         }
     }
     
     private func chooseAudioFile() {
-        RecordingSessionHelper.chooseFile { url in
-            viewModel.setAudioFilePath(url: url)
+        RecordingSessionHelper.chooseFile { filePath in
+            viewModel.setAudioFilePath(filePath)
         }
     }
 }

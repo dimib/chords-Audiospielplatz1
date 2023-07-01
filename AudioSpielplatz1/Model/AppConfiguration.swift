@@ -20,6 +20,8 @@ final class AppConfiguration {
         var startRecordingVolume: Float
         var endRecordingVolume: Float
         
+        var splitterCurrentFile: String?
+        
         enum CodingKeys: CodingKey {
             case projectDirectory
             case sessionDirectory
@@ -27,6 +29,7 @@ final class AppConfiguration {
             case sessionTemplate
             case startRecordingVolume
             case endRecordingVolume
+            case splitterCurrentFile
         }
         
         init(from decoder: Decoder) throws {
@@ -40,6 +43,8 @@ final class AppConfiguration {
             
             self.startRecordingVolume = (try? container.decodeIfPresent(Float.self, forKey: AppConfiguration.Config.CodingKeys.startRecordingVolume)) ?? 1.0
             self.endRecordingVolume = (try? container.decodeIfPresent(Float.self, forKey: AppConfiguration.Config.CodingKeys.endRecordingVolume)) ?? 0.2
+            
+            self.splitterCurrentFile = try? container.decodeIfPresent(String.self, forKey: AppConfiguration.Config.CodingKeys.splitterCurrentFile)
         }
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: AppConfiguration.Config.CodingKeys.self)
@@ -49,6 +54,7 @@ final class AppConfiguration {
             try container.encodeIfPresent(self.sessionTemplate, forKey: AppConfiguration.Config.CodingKeys.sessionTemplate)
             try container.encodeIfPresent(self.startRecordingVolume, forKey: AppConfiguration.Config.CodingKeys.startRecordingVolume)
             try container.encodeIfPresent(self.endRecordingVolume, forKey: AppConfiguration.Config.CodingKeys.endRecordingVolume)
+            try container.encodeIfPresent(self.splitterCurrentFile,forKey: AppConfiguration.Config.CodingKeys.splitterCurrentFile)
         }
         
         init() {

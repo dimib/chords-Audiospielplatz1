@@ -35,12 +35,12 @@ final class AudioDeviceManager {
                                                          mScope: kAudioObjectPropertyScopeGlobal,
                                                          mElement: kAudioObjectPropertyElementMain)
         status = AudioObjectGetPropertyDataSize(AudioObjectID(kAudioObjectSystemObject), &propertyAddress, 0, nil, &propertySize)
-        guard status == noErr else { throw AudioManagersError.audioDevice(status) }
+        guard status == noErr else { throw AudioManagerError.audioDevice(status) }
         
         let deviceCount = Int(propertySize) / MemoryLayout<AudioDeviceID>.size
         var deviceIds = [AudioDeviceID](repeating: 0, count: deviceCount)
         status = AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &propertyAddress, 0, nil, &propertySize, &deviceIds)
-        guard status == noErr else { throw AudioManagersError.audioDevice(status) }
+        guard status == noErr else { throw AudioManagerError.audioDevice(status) }
         
         for deviceId in deviceIds {
             var deviceName = ""
@@ -87,20 +87,20 @@ final class AudioDeviceManager {
     
     func setDefault(audioDevice: AudioDevice) throws {
         var deviceId = Int(audioDevice.id)
-        guard let audioUnit = audioEngine.inputNode.audioUnit else { throw AudioManagersError.audioDevice(-1) }
+        guard let audioUnit = audioEngine.inputNode.audioUnit else { throw AudioManagerError.audioDevice(-1) }
         let status = AudioUnitSetProperty(audioUnit, AudioUnitPropertyID(kAudioOutputUnitProperty_CurrentDevice),
                                          AudioUnitScope(kAudioUnitScope_Input), 0,
                                          &deviceId, UInt32(MemoryLayout<AudioDeviceID>.size))
-        guard status == noErr else { throw AudioManagersError.audioDevice(status) }
+        guard status == noErr else { throw AudioManagerError.audioDevice(status) }
     }
  
     func enableInput(bus: AudioUnitElement, enable: Bool = true) throws {
-        guard let audioUnit = audioEngine.inputNode.audioUnit else { throw AudioManagersError.audioDevice(-1) }
+        guard let audioUnit = audioEngine.inputNode.audioUnit else { throw AudioManagerError.audioDevice(-1) }
         var enableInput: UInt32 = enable ? 1 : 0
         
         let status = AudioUnitSetProperty(audioUnit, AudioUnitPropertyID(kAudioOutputUnitProperty_EnableIO),
                                           AudioUnitScope(kAudioUnitScope_Input), bus, &enableInput, UInt32(MemoryLayout<UInt32>.size))
-        guard status == noErr else { throw AudioManagersError.audioDevice(status) }
+        guard status == noErr else { throw AudioManagerError.audioDevice(status) }
     }
     
 }

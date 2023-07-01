@@ -23,13 +23,13 @@ final class PlaybackManager: NSObject, ObservableObject {
     
     func setupPlayerSession(input filename: String) throws {
         guard let inputUrl = NSURL(fileURLWithPath: RecordingManager.directory).appendingPathComponent("\(filename).wav") else {
-            throw AudioManagersError.illegalInputFile
+            throw AudioManagerError.illegalInputFile
         }
         self.inputUrl = inputUrl
     }
     
     func startPlaying() throws {
-        guard let inputUrl else { throw AudioManagersError.illegalState }
+        guard let inputUrl else { throw AudioManagerError.illegalState }
         let player = try AVAudioPlayer(contentsOf: inputUrl)
         player.delegate = self
         player.play()

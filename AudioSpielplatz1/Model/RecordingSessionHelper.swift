@@ -30,7 +30,7 @@ final class RecordingSessionHelper {
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
     }
     
-    static func chooseDirectory(completion: (URL) -> Void) {
+    static func chooseDirectory(completion: (String) -> Void) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = true
@@ -38,17 +38,17 @@ final class RecordingSessionHelper {
         panel.canChooseFiles = false
         if panel.runModal() == .OK {
             guard let url = panel.url else { return }
-            completion(url)
+            completion(url.path())
         }
     }
-    static func chooseFile(completion: (URL) -> Void) {
+    static func chooseFile(completion: (String) -> Void) {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
         if panel.runModal() == .OK {
             guard let url = panel.url else { return }
-            completion(url)
+            completion(url.path())
         }
     }
 }

@@ -125,8 +125,8 @@ struct RecordingSessionView: View {
 
     @MainActor
     private func chooseSessionDirectory() {
-        RecordingSessionHelper.chooseDirectory { url in
-            viewModel.setSessionDirectory(url)
+        RecordingSessionHelper.chooseDirectory { directory in
+            viewModel.setSessionDirectory(directory)
         }
     }
     

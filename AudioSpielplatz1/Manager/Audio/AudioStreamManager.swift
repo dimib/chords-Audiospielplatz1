@@ -25,10 +25,10 @@ final class AudioStreamManager: NSObject, ObservableObject {
     
     /// Publisher for audio streams. The stream will be closed when the audio streaming
     /// is stopped.
-    private var _audioStream: PassthroughSubject<AudioData, AudioManagersError>?
-    var audioStream: AnyPublisher<AudioData, AudioManagersError> {
+    private var _audioStream: PassthroughSubject<AudioData, AudioManagerError>?
+    var audioStream: AnyPublisher<AudioData, AudioManagerError> {
         guard let audioStream = _audioStream else {
-            let audioStream = PassthroughSubject<AudioData, AudioManagersError>()
+            let audioStream = PassthroughSubject<AudioData, AudioManagerError>()
             _audioStream = audioStream
             return audioStream.eraseToAnyPublisher()
         }
@@ -42,7 +42,7 @@ final class AudioStreamManager: NSObject, ObservableObject {
     func setupCaptureSession(config: AudioStreamManagerConfig = .init()) throws {
         
         guard AudioAuthorization.isAuthorized else {
-            throw AudioManagersError.notAuthorized
+            throw AudioManagerError.notAuthorized
         }
         
         self.config = config

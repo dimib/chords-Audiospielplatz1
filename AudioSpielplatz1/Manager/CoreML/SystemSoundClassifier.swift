@@ -28,7 +28,7 @@ final class SystemSoundClassifier: NSObject, SoundClassifier {
     private var cancellable: AnyCancellable?
 
     /// Setup Sound Classifier
-    func setupClassifier(audioFormat: AVAudioFormat, audioStream: AnyPublisher<AudioData, AudioManagersError>) throws {
+    func setupClassifier(audioFormat: AVAudioFormat, audioStream: AnyPublisher<AudioData, AudioManagerError>) throws {
         do {
             let newAnalyzer = SNAudioStreamAnalyzer(format: audioFormat)
             analyzer = newAnalyzer
