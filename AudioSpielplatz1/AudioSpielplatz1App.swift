@@ -16,6 +16,7 @@ struct AudioSpielplatz1App: App {
     static let volumeSettingsId = "volume-settings"
     static let analyzerWindowId = "analyzer-window"
     static let audioFileSplitterWindowId = "audiofile-splitter"
+    static let chordSuggestionWindowId = "chord-suggestion"
 
     @StateObject var applicationState = ApplicationState()
     
@@ -48,6 +49,12 @@ struct AudioSpielplatz1App: App {
                 .environmentObject(applicationState)
         }
         .windowResizability(.contentMinSize)
+        
+        Window("Chord Suggestion", id: Self.chordSuggestionWindowId) {
+            ChordSuggestionView()
+                .environmentObject(applicationState)
+        }
+        .windowResizability(.contentSize)
         
         .commands {
             CommandGroup(replacing: .newItem) {
