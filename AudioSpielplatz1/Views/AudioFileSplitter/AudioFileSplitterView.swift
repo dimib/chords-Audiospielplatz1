@@ -31,15 +31,15 @@ struct AudioFileSplitterView: View {
                 
                 HStack {
                     Button(action: {
-                        chooseAudioFile()
+                        chooseOutputDirectory()
                     }, label: {
-                        Image(systemName: "doc.plaintext")
+                        Image(systemName: "square.and.arrow.down.on.square")
                             .imageScale(.large)
                     })
                     .buttonStyle(.plain)
                     .frame(width: 40, height: 40)
                     
-                    Text("\(viewModel.audioFilePath)")
+                    Text("\(viewModel.outputDirectory)")
                         .font(.headline)
                     Spacer()
                 }
@@ -49,13 +49,14 @@ struct AudioFileSplitterView: View {
             .padding(.top, 10)
             
             VStack {
-                WaveView(data: viewModel.audioAnalyzerData)
+                FileListView(files: viewModel.inputFiles)
+                ProgressView(value: viewModel.splitProgress)
             }
             .padding(10)
             
             HStack {
                 Button(action: {
-                    viewModel.splitAudioFile()
+                    viewModel.splitAudioFiles()
                 }, label: {
                     Text("Split")
                 })
@@ -74,9 +75,9 @@ struct AudioFileSplitterView: View {
         }
     }
     
-    private func chooseAudioFile() {
-        RecordingSessionHelper.chooseFile { filePath in
-            viewModel.setAudioFilePath(filePath)
+    private func chooseOutputDirectory() {
+        RecordingSessionHelper.chooseDirectory { path in
+            viewModel.setOutputDirectory(path)
         }
     }
 }

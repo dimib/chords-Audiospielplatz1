@@ -43,14 +43,21 @@ final class AudioFileSplitter {
         }
         debugPrint("frameCount=\(frameLength)")
         
+        try FileManager.default.createDirectory(at: self.outputPathURL, withIntermediateDirectories: true)
+        
         var count = 0
         var reading = true
         while reading {
             do {
                 try audioFile.read(into: audioBuffer, frameCount: frameLength)
-                debugPrint("read frameLength=\(audioBuffer.frameLength)")
-                try write(count: count, buffer: audioBuffer)
-                count += 1
+                if audioBuffer.frameLength == frameLength {
+                    debugPrint("write frameLength=\(audioBuffer.frameLength)")
+                    try write(count: count, buffer: audioBuffer)
+                    count += 1
+                } else {
+                    audioFile.framePosition = audioFile.length - Int64(frameLength)
+                    debugPrint("reposition to \(audioFile.framePosition)")
+                }
             } catch {
                 reading = false
             }

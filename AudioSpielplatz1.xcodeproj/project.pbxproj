@@ -43,6 +43,7 @@
 		366999402A34B0520041C518 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3669993F2A34B0520041C518 /* Errors.swift */; };
 		366999422A34BD5D0041C518 /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999412A34BD5D0041C518 /* AudioStreamManager.swift */; };
 		366999442A34BE540041C518 /* AudioAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366999432A34BE540041C518 /* AudioAuthorization.swift */; };
+		367585F72A51D05C001A1096 /* FileListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367585F62A51D05C001A1096 /* FileListView.swift */; };
 		3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */; };
 		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
 		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
@@ -92,6 +93,7 @@
 		3669993F2A34B0520041C518 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		366999412A34BD5D0041C518 /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioStreamManager.swift; sourceTree = "<group>"; };
 		366999432A34BE540041C518 /* AudioAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAuthorization.swift; sourceTree = "<group>"; };
+		367585F62A51D05C001A1096 /* FileListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListView.swift; sourceTree = "<group>"; };
 		3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
 		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				366999372A3471990041C518 /* PlayerControlsView.swift */,
 				368463502A40F4F000B574E5 /* VolumeView.swift */,
 				368463542A43971C00B574E5 /* WaveView.swift */,
+				367585F62A51D05C001A1096 /* FileListView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */,
 				3606D6AF2A4B6F6E009E3957 /* AnalyzerView.swift in Sources */,
 				368463572A44DC5A00B574E5 /* AudioDeviceManager.swift in Sources */,
+				367585F72A51D05C001A1096 /* FileListView.swift in Sources */,
 				364F01552A35CEDA009D7B3B /* AppDefaults.swift in Sources */,
 				3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */,
 				366999402A34B0520041C518 /* Errors.swift in Sources */,

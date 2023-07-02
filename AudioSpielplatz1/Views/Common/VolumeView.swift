@@ -46,9 +46,4 @@ struct VolumeView: View {
     }
 }
 
-struct VolumeView_Previews: PreviewProvider {
-    @State var playerState: PlayerState = .idle
-    static var previews: some View {
-        VolumeView(data: AudioAnalyzerData(min: -3.0, max: 1.0, time: 0, frameLength: 0, channelCount: 0, samples: []))
-    }
-}
+
