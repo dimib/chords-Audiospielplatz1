@@ -13,6 +13,7 @@ enum AudioManagerError: Error, Equatable {
     case illegalState
     case notAuthorized
     case noAudioFile
+    case noModel
     case finished
     case finishedWithMessage(String)
     case other(Error)

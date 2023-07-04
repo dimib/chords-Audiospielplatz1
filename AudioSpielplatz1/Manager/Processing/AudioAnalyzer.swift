@@ -31,7 +31,7 @@ final class AudioAnalyzer {
             }, receiveValue: { audioData in
                 
                 let analyzerData = AudioAnalyzerData(audioData: audioData)
-                debugPrint(analyzerData.debugDescription)
+                // debugPrint(analyzerData.debugDescription)
                 
                 self._analyzerValues.send(analyzerData)
             })

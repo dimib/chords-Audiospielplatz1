@@ -7,11 +7,13 @@
 
 import Foundation
 import AVFoundation
+import SoundAnalysis
 import Combine
 
 enum SoundClassifierState {
     case idle
     case running
+    case classification([SNClassification])
     case error(message: String)
 }
 

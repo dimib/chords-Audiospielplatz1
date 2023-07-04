@@ -16,9 +16,15 @@ struct ChordSuggestionView: View {
     var body: some View {
         VStack {
             VStack {
-                Text("")
-                    .foregroundColor(Color.black)
-                    .font(Font.system(size: 200))
+                ZStack {
+                    Text("\(viewModel.chordLabel)")
+                        .foregroundColor(Color.black)
+                        .font(Font.system(size: 200))
+                    
+                    Text("\(viewModel.confidenceLabel)")
+                        .foregroundColor(Color.gray.opacity(0.5))
+                        .font(Font.system(size: 24))
+                }
             }
             .frame(minWidth: 400, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity)
             .background(Color.white.opacity(0.8))

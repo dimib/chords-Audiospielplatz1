@@ -21,6 +21,11 @@ final class AudioStreamManager: NSObject, ObservableObject {
     
     private var audioEngine = AVAudioEngine()
     
+    var audioFormat: AVAudioFormat? {
+        guard let config else { return nil }
+        return audioEngine.inputNode.inputFormat(forBus: config.busIndex)
+    }
+    
     @Published var audioStreamManagerState: AudioStreamManagerState = .idle
     
     /// Publisher for audio streams. The stream will be closed when the audio streaming
@@ -39,7 +44,8 @@ final class AudioStreamManager: NSObject, ObservableObject {
         await AudioAuthorization.awaitAuthorization
     }
     
-    func setupCaptureSession(config: AudioStreamManagerConfig = .init()) throws {
+    @discardableResult
+    func setupCaptureSession(config: AudioStreamManagerConfig = .init()) throws -> AVAudioFormat {
         
         guard AudioAuthorization.isAuthorized else {
             throw AudioManagerError.notAuthorized
@@ -56,6 +62,7 @@ final class AudioStreamManager: NSObject, ObservableObject {
             }
             self._audioStream?.send(AudioData(buffer: buffer, when: when))
         }
+        return audioFormat
     }
     
     func start() throws {

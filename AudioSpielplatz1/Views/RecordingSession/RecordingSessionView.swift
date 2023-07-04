@@ -56,10 +56,7 @@ struct RecordingSessionView: View {
             }
             .border(Color.gray)
             .padding(5)
-            
-            
 
-        
             // -- Chords to play
             
             HStack {
@@ -142,7 +139,6 @@ struct RecordingSessionView: View {
     
     /// Create a new recording session
     init() {
-        print("Recording Session")
     }
 }
 

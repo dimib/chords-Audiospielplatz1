@@ -20,6 +20,13 @@ struct AudioSpielplatz1App: App {
 
     @StateObject var applicationState = ApplicationState()
     
+    init() {
+        Task {
+            let isAuthorized = await AudioAuthorization.awaitAuthorization
+            debugPrint("App is authorized? \(isAuthorized)")
+        }
+    }
+    
     var body: some Scene {
         WindowGroup(id: Self.recordingSessionWindowId) {
             RecordingSessionView()
@@ -58,10 +65,8 @@ struct AudioSpielplatz1App: App {
         
         .commands {
             CommandGroup(replacing: .newItem) {
-                Button("New Recording Session") {
+                Button("Recording Session") {
                     openWindow(id: Self.recordingSessionWindowId)
-                }
-                Button("Open Recording Session") {
                 }
             }
             CommandGroup(replacing: .pasteboard) {}
