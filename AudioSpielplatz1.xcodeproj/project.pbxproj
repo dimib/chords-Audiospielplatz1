@@ -50,6 +50,8 @@
 		367586002A54A37A001A1096 /* CustomSoundClassifierConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367585FF2A54A37A001A1096 /* CustomSoundClassifierConfiguration.swift */; };
 		367586022A54A584001A1096 /* ChordClassifier1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586012A54A584001A1096 /* ChordClassifier1.mlmodel */; };
 		367586042A54B26D001A1096 /* ChordsClassifier4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586032A54B26C001A1096 /* ChordsClassifier4.mlmodel */; };
+		367586062A560F29001A1096 /* ChordsClassifier5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586052A560F28001A1096 /* ChordsClassifier5.mlmodel */; };
+		367586082A561422001A1096 /* ChordsClassifier5a.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586072A561422001A1096 /* ChordsClassifier5a.mlmodel */; };
 		3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */; };
 		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
 		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
@@ -106,6 +108,8 @@
 		367585FF2A54A37A001A1096 /* CustomSoundClassifierConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSoundClassifierConfiguration.swift; sourceTree = "<group>"; };
 		367586012A54A584001A1096 /* ChordClassifier1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordClassifier1.mlmodel; sourceTree = "<group>"; };
 		367586032A54B26C001A1096 /* ChordsClassifier4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier4.mlmodel; sourceTree = "<group>"; };
+		367586052A560F28001A1096 /* ChordsClassifier5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier5.mlmodel; sourceTree = "<group>"; };
+		367586072A561422001A1096 /* ChordsClassifier5a.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier5a.mlmodel; sourceTree = "<group>"; };
 		3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
 		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
@@ -239,6 +243,8 @@
 			children = (
 				367586012A54A584001A1096 /* ChordClassifier1.mlmodel */,
 				367586032A54B26C001A1096 /* ChordsClassifier4.mlmodel */,
+				367586052A560F28001A1096 /* ChordsClassifier5.mlmodel */,
+				367586072A561422001A1096 /* ChordsClassifier5a.mlmodel */,
 				366999292A3469170041C518 /* Assets.xcassets */,
 				3606D6992A483EC5009E3957 /* SimpleChordsTemplate.json */,
 			);
@@ -441,6 +447,7 @@
 				3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */,
 				36AF50CC2A4D4CA600FB56E0 /* AudioFileStreamManager.swift in Sources */,
 				367585FC2A520A08001A1096 /* ChordSuggestionViewModel.swift in Sources */,
+				367586082A561422001A1096 /* ChordsClassifier5a.mlmodel in Sources */,
 				36AF50CA2A4D3B9E00FB56E0 /* AudioFileSplitter.swift in Sources */,
 				364F014D2A35C1D1009D7B3B /* AudioDataProcessor.swift in Sources */,
 				3606D6A92A48739D009E3957 /* SessionRecorder.swift in Sources */,
@@ -457,6 +464,7 @@
 				3606D6A12A4847ED009E3957 /* Storable.swift in Sources */,
 				3606D6B12A4B75A9009E3957 /* AudioStreamManagerConfig.swift in Sources */,
 				364F014B2A35C0D4009D7B3B /* SoundClassfier.swift in Sources */,
+				367586062A560F29001A1096 /* ChordsClassifier5.mlmodel in Sources */,
 				364F01572A35EB0F009D7B3B /* ClassificationResult.swift in Sources */,
 				3606D6AF2A4B6F6E009E3957 /* AnalyzerView.swift in Sources */,
 				368463572A44DC5A00B574E5 /* AudioDeviceManager.swift in Sources */,

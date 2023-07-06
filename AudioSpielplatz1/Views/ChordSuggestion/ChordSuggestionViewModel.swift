@@ -25,7 +25,7 @@ final class ChordSuggestionViewModel: ObservableObject {
     func startAnalyze() {
         print("🎙️ start chord suggestion")
         do {
-            let chordClassifierConfig = try CustomSoundClassifierConfiguration.makeChordsClassifier4()
+            let chordClassifierConfig = try CustomSoundClassifierConfiguration.makeChordsClassifier5()
             let audioFormat = try audioStreamManager.setupCaptureSession()
             try audioAnalyzer.setupAnalyzer(audioStream: audioStreamManager.audioStream)
             
