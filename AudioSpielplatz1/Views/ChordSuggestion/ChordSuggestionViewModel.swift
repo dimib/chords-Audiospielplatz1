@@ -72,7 +72,7 @@ final class ChordSuggestionViewModel: ObservableObject {
         if chordClassification.identifier == "Noise" {
             chordLabel = ""
         } else {
-            chordLabel = chordClassification.identifier
+            chordLabel = soundClassifier.translate(chordClassification.identifier)
         }
         confidenceLabel = "\(Int(chordClassification.confidence * 100)) %"
     }

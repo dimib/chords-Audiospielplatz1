@@ -38,11 +38,15 @@ final class CustomSoundClassifier: NSObject, SoundClassifier {
             analyzer = newAnalyzer
             
             let request = try SNClassifySoundRequest(mlModel: config.model)
-            request.windowDuration = CMTimeMakeWithSeconds(AppDefaults.inferenceWindowSize, preferredTimescale: 48_000)
-            request.overlapFactor = AppDefaults.overlapFactor
+            request.windowDuration = CMTimeMakeWithSeconds(config.inferenceWindowSize,
+                                                           preferredTimescale: config.preferredTimescale)
+            request.overlapFactor = config.overlapFactor
             try newAnalyzer.add(request, withObserver: self)
             
-            cancellable = audioStream.sink(
+            cancellable = audioStream
+                .filter {
+                    return $0.max > config.minimumVolume }
+                .sink(
                 receiveCompletion: { error in
                     self.cleanup()
                 }, receiveValue: { audioData in
@@ -61,6 +65,12 @@ final class CustomSoundClassifier: NSObject, SoundClassifier {
         analyzer = nil
         cancellable = nil
     }
+    
+    // MARK: Helper
+    func translate(_ identifier: String) -> String {
+        guard let config = self.config else { return identifier }
+        return config.translation[identifier] ?? identifier
+    }
 }
 
 extension CustomSoundClassifier: SNResultsObserving {
@@ -69,7 +79,7 @@ extension CustomSoundClassifier: SNResultsObserving {
         if let result = result as? SNClassificationResult {
             let found = result.classifications.filter { $0.confidence > 0.8 }.sorted(by: { $0.confidence > $1.confidence })
             if !found.isEmpty {
-                debugPrint("😎 \(found)")
+                // debugPrint("😎 \(found)")
                 _soundClassifierState.send(.classification(found))
             }
         }

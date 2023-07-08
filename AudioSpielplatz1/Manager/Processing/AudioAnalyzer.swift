@@ -29,7 +29,6 @@ final class AudioAnalyzer {
             receiveCompletion: { error in
                 self.cleanup()
             }, receiveValue: { audioData in
-                
                 let analyzerData = AudioAnalyzerData(audioData: audioData)
                 // debugPrint(analyzerData.debugDescription)
                 

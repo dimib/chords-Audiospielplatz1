@@ -52,6 +52,7 @@
 		367586042A54B26D001A1096 /* ChordsClassifier4.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586032A54B26C001A1096 /* ChordsClassifier4.mlmodel */; };
 		367586062A560F29001A1096 /* ChordsClassifier5.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586052A560F28001A1096 /* ChordsClassifier5.mlmodel */; };
 		367586082A561422001A1096 /* ChordsClassifier5a.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 367586072A561422001A1096 /* ChordsClassifier5a.mlmodel */; };
+		367586592A5972A1001A1096 /* CustomSoundClassifierConfiguration+Chords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367586582A5972A0001A1096 /* CustomSoundClassifierConfiguration+Chords.swift */; };
 		3684634D2A40E06500B574E5 /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */; };
 		3684634F2A40F3CF00B574E5 /* AudioAnalyzerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */; };
 		368463512A40F4F000B574E5 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368463502A40F4F000B574E5 /* VolumeView.swift */; };
@@ -110,6 +111,7 @@
 		367586032A54B26C001A1096 /* ChordsClassifier4.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier4.mlmodel; sourceTree = "<group>"; };
 		367586052A560F28001A1096 /* ChordsClassifier5.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier5.mlmodel; sourceTree = "<group>"; };
 		367586072A561422001A1096 /* ChordsClassifier5a.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ChordsClassifier5a.mlmodel; sourceTree = "<group>"; };
+		367586582A5972A0001A1096 /* CustomSoundClassifierConfiguration+Chords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CustomSoundClassifierConfiguration+Chords.swift"; sourceTree = "<group>"; };
 		3684634C2A40E06500B574E5 /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 		3684634E2A40F3CF00B574E5 /* AudioAnalyzerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzerData.swift; sourceTree = "<group>"; };
 		368463502A40F4F000B574E5 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				364F01482A35BE44009D7B3B /* CustomSoundClassifier.swift */,
 				367585FF2A54A37A001A1096 /* CustomSoundClassifierConfiguration.swift */,
+				367586582A5972A0001A1096 /* CustomSoundClassifierConfiguration+Chords.swift */,
 				364F014A2A35C0D4009D7B3B /* SoundClassfier.swift */,
 				364F01522A35CCF7009D7B3B /* SystemSoundClassifier.swift */,
 				364F01562A35EB0F009D7B3B /* ClassificationResult.swift */,
@@ -458,6 +461,7 @@
 				3606D6982A483903009E3957 /* RecordingSessionViewModel.swift in Sources */,
 				366999282A3469160041C518 /* ContentView.swift in Sources */,
 				366999262A3469160041C518 /* AudioSpielplatz1App.swift in Sources */,
+				367586592A5972A1001A1096 /* CustomSoundClassifierConfiguration+Chords.swift in Sources */,
 				3606D6912A482DAE009E3957 /* AppConfiguration.swift in Sources */,
 				367586022A54A584001A1096 /* ChordClassifier1.mlmodel in Sources */,
 				366999382A3471990041C518 /* PlayerControlsView.swift in Sources */,

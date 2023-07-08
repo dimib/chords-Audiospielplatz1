@@ -23,6 +23,14 @@ struct AudioData {
         let samples: [Float] = Array(UnsafeBufferPointer(start: channelData[0], count: arraySize))
         return samples
     }
+    
+    var max: Float {
+        guard let samples = samples else { return 0 }
+        let maxVolume: Float = samples.reduce(0.0, { partialResult, sample in
+            return sample > partialResult ? sample : partialResult
+        })
+        return maxVolume
+    }
 }
 
 protocol AudioDataProcessor: AnyObject {
