@@ -33,18 +33,23 @@ final class CustomSoundClassifierConfiguration {
     var minimumVolume: Float = 0.00
 
     // MARK: - Create models
+    
+    static func makeChordsConfig() throws -> CustomSoundClassifierConfiguration {
+        try makeChords3a()
+    }
 
-    static func makeChordsClassifier4() throws -> CustomSoundClassifierConfiguration {
+    static func makeChords2a() throws -> CustomSoundClassifierConfiguration {
         let modelConfiguration = MLModelConfiguration()
-        let chordClassifierModel = try ChordsClassifier4(configuration: modelConfiguration).model
+        let chordClassifierModel = try Chords2a(configuration: modelConfiguration).model
         return CustomSoundClassifierConfiguration(model: chordClassifierModel, translation: Self.chordsTranslation)
     }
 
-    static func makeChordsClassifier5() throws -> CustomSoundClassifierConfiguration {
+    static func makeChords3a() throws -> CustomSoundClassifierConfiguration {
         let modelConfiguration = MLModelConfiguration()
-        let chordClassifierModel = try ChordsClassifier5a(configuration: modelConfiguration).model
+        let chordClassifierModel = try Chords3a(configuration: modelConfiguration).model
         return CustomSoundClassifierConfiguration(model: chordClassifierModel, translation: Self.chordsTranslation)
     }
+
     private init(model: MLModel, translation: [String : String]) {
         self.model = model
         self.translation = translation

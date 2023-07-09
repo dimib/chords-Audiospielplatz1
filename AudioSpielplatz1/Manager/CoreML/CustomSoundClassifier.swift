@@ -77,7 +77,7 @@ extension CustomSoundClassifier: SNResultsObserving {
     func request(_ request: SNRequest, didProduce result: SNResult) {
         //debugPrint("😎 result: \(result.description)")
         if let result = result as? SNClassificationResult {
-            let found = result.classifications.filter { $0.confidence > 0.8 }.sorted(by: { $0.confidence > $1.confidence })
+            let found = result.classifications.filter { $0.confidence > 0.7 }.sorted(by: { $0.confidence > $1.confidence })
             if !found.isEmpty {
                 // debugPrint("😎 \(found)")
                 _soundClassifierState.send(.classification(found))
