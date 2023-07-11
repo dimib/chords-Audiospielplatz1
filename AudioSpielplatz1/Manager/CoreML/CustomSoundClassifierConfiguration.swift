@@ -35,7 +35,13 @@ final class CustomSoundClassifierConfiguration {
     // MARK: - Create models
     
     static func makeChordsConfig() throws -> CustomSoundClassifierConfiguration {
-        try makeChords3a()
+        try makeChords52()
+    }
+
+    static func makeChords52() throws -> CustomSoundClassifierConfiguration {
+        let modelConfiguration = MLModelConfiguration()
+        let chordClassifierModel = try Chords52(configuration: modelConfiguration).model
+        return CustomSoundClassifierConfiguration(model: chordClassifierModel, translation: Self.chordsTranslation)
     }
 
     static func makeChords2a() throws -> CustomSoundClassifierConfiguration {

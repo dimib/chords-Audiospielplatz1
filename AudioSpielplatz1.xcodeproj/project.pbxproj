@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9E74462A5DCF8E001EE271 /* Chords52.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E74452A5DCF8E001EE271 /* Chords52.mlmodel */; };
 		3606D68E2A482952009E3957 /* RecordingSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D68D2A482952009E3957 /* RecordingSessionView.swift */; };
 		3606D6912A482DAE009E3957 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6902A482DAE009E3957 /* AppConfiguration.swift */; };
 		3606D6942A4830F8009E3957 /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3606D6932A4830F8009E3957 /* UserDefaultStorage.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D9E74452A5DCF8E001EE271 /* Chords52.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Chords52.mlmodel; sourceTree = "<group>"; };
 		3606D68D2A482952009E3957 /* RecordingSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSessionView.swift; sourceTree = "<group>"; };
 		3606D6902A482DAE009E3957 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		3606D6932A4830F8009E3957 /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				3652D02F2A59D889000C9DF2 /* Chords2a.mlmodel */,
 				3652D0332A5AF00F000C9DF2 /* Chords3a.mlmodel */,
+				1D9E74452A5DCF8E001EE271 /* Chords52.mlmodel */,
 				366999292A3469170041C518 /* Assets.xcassets */,
 				3606D6992A483EC5009E3957 /* SimpleChordsTemplate.json */,
 			);
@@ -422,6 +425,7 @@
 			files = (
 				366999362A346A200041C518 /* RecordingManager.swift in Sources */,
 				3606D6962A483703009E3957 /* JSONFileStorage.swift in Sources */,
+				1D9E74462A5DCF8E001EE271 /* Chords52.mlmodel in Sources */,
 				367586002A54A37A001A1096 /* CustomSoundClassifierConfiguration.swift in Sources */,
 				368463532A4383E000B574E5 /* AudioStorage.swift in Sources */,
 				3606D6A52A48539C009E3957 /* RecordingSessionHelper.swift in Sources */,
