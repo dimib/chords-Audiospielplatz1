@@ -25,7 +25,7 @@ final class UserDefaultStorage<Storage: Storable> {
         
         set {
             guard let data = try? JSONEncoder().encode(newValue) else {
-                print("☠️ could not write \(key) to \(suiteName ?? "default")")
+                debugPrint("☠️ could not write \(key) to \(suiteName ?? "default")")
                 return
             }
             UserDefaults(suiteName: suiteName)?.set(data, forKey: key)
